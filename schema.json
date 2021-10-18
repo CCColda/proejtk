@@ -1,0 +1,141 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "Button": {
+            "properties": {
+                "action": {
+                    "anyOf": [
+                        {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "enum": [
+                                                "game_over"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            ]
+                        },
+                        {
+                            "allOf": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                {
+                                    "$ref": "#/definitions/{type:\"stage\";stage:string|Stage;}"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "text": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Stage": {
+            "allOf": [
+                {
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                {
+                    "$ref": "#/definitions/{text:string;buttons:Button[];}"
+                }
+            ]
+        },
+        "{text:string;buttons:Button[];}": {
+            "properties": {
+                "buttons": {
+                    "items": {
+                        "$ref": "#/definitions/Button"
+                    },
+                    "type": "array"
+                },
+                "text": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "{type:\"stage\";stage:string|Stage;}": {
+            "properties": {
+                "stage": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/Stage"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "type": {
+                    "enum": [
+                        "stage"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "properties": {
+        "stages": {
+            "items": {
+                "allOf": [
+                    {
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "$ref": "#/definitions/{text:string;buttons:Button[];}"
+                    }
+                ]
+            },
+            "type": "array"
+        }
+    },
+    "type": "object"
+}
+
