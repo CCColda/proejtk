@@ -1,0 +1,108 @@
+:root {
+	--background: black;
+
+	--stage-background: #100000;
+	--stage-foreground: white;
+
+	--button-background: #5E0000;
+	--button-background-hover: #3E0000;
+	--button-foreground: white;
+	--button-shadow: #222222;
+}
+
+html, body, #content {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+
+	background-color: var(--background);
+}
+
+#content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#header, #footer {
+	height: 10%;
+	background-color: black;
+}
+
+#main {
+	width: 100%;
+	height: 70%;
+}
+
+#panels {
+	height: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+#left_panel, #right_panel {
+	color: black;
+	width: 20%;
+	height: 80%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#event_panel {
+	background-color: var(--stage-background);
+	color: var(--stage-foreground);
+	
+	border-radius: 2%;
+
+	text-align: center;
+	padding: 5px;
+
+	width: 40%;
+	height: 100%;
+}
+
+.dev_stage_id {
+	position: absolute;
+
+	bottom: 0;
+	left: 50%;
+	text-align: center;
+
+	color: gray;
+}
+
+.sidebutton {
+	width: clamp(2rem, 10em, 80%);
+	height: auto;
+
+	aspect-ratio: 1/1;
+
+	background-color: var(--button-background);
+	color: var(--button-foreground);
+	box-shadow: 0px 0px 8px 2px var(--button-shadow);
+
+	border-radius: 5%;
+	border: none;
+
+	margin: 1em;
+
+	transition: 0.5s;
+}
+
+.sidebutton:hover {
+	background-color: var(--button-background-hover);
+}
+
+@media (max-width: 768px) {
+	.sidebutton {
+		aspect-ratio: 1/2;
+		margin: 0.5em;
+	}	
+}

@@ -1,0 +1,27 @@
+stages:
+  - id: start
+    text: 5:30 perckor felszakítja az ébresztő a szemed.
+    buttons:
+      - text: korán van tesó, még visszaalszok
+        action:
+          type: stage
+          stage: none
+      - text: felkelek, a picsába már
+        action: stage:none
+      - text: megeszem a csipám és visszaalszom (3)
+        action: game_over:Örökre elszunnyadsz, ébresztőd kommoszként szól a háttérben.
+      - text: kinyomom az ébresztőt
+        action: stage:alarm_out
+  - id: alarm_out
+    text: Kinyomtad az ébresztőt
+    buttons:
+      - text: korán van tesó, még visszaalszom
+  - id: none
+    text: bocsi ezt nem programoztam be
+    buttons:
+      - text: Hazamegyek
+        action:
+          type: game_over
+          message: |
+            Hazamentél😥
+            **Akkor menjen haza!**
