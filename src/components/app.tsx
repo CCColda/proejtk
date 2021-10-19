@@ -11,21 +11,28 @@ export type AppProps = {
 };
 
 export type AppState = {
-	stage: Stage
+	stage: Stage,
+	phone: boolean
 };
 
 export default class App extends React.Component<AppProps, AppState> {
 	private stageFile?: StageFile;
+	private media: MediaQueryList;
 	// TODO: private history?: Stage[];
 
 	constructor(props: AppProps) {
 		super(props);
 
+		this.media = window.matchMedia("(max-width: 480px)");
+
 		this.state = {
 			stage: {
 				id: "_loading", "text": "", buttons: []
-			}
+			},
+			phone: this.media.matches
 		};
+
+		this.media.onchange = mqle => this.setState({ phone: mqle.matches });
 
 		this.fetchStageFile().then(v => {
 			this.stageFile = v;
@@ -124,15 +131,23 @@ export default class App extends React.Component<AppProps, AppState> {
 			</div>
 			<div id="main">
 				<div id="panels">
-					<div id="left_panel">
-						{this.renderButtons([0, 2])}
+					<div className="sidepanel">
+						{
+							this.state.phone
+								? <></>
+								: this.renderButtons([0, 2])
+						}
 					</div>
 					<div id="event_panel">
 						<p className="dev_stage_id">{this.state.stage.id ?? ""}</p>
 						<ReactMarkdown>{this.state.stage.text}</ReactMarkdown>
 					</div>
-					<div id="right_panel">
-						{this.renderButtons([1, 3])}
+					<div className="sidepanel">
+						{
+							this.state.phone
+								? this.renderButtons([0, 1, 2, 3])
+								: this.renderButtons([1, 3])
+						}
 					</div>
 				</div>
 			</div>

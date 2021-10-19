@@ -1,0 +1,42 @@
+.sidebutton {
+	width: clamp(2rem, 10em, 80%);
+	height: auto;
+
+	aspect-ratio: 1/1;
+
+	background-color: var(--button-background);
+	color: var(--button-foreground);
+	box-shadow: 0px 0px 8px 2px var(--button-shadow);
+
+	border-radius: 10px;
+	border: none;
+
+	margin: 1em;
+
+	transition: 0.5s;
+}
+
+.sidebutton:hover {
+	background-color: var(--button-background-hover);
+}
+
+/* extend to full height tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+	.sidebutton {
+		aspect-ratio: none;
+		height: 100%;
+
+		margin: 0.5em;
+	}
+}
+
+/* extend to full width on phones */
+@media (max-width: 480px) {
+	.sidebutton {
+		aspect-ratio: auto;
+		width: 100%;
+		height: fit-content;
+
+		margin: 0.25em 0;
+	}
+}
