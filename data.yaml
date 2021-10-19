@@ -8,14 +8,54 @@ stages:
           stage: none
       - text: felkelek, a picsába már
         action: stage:none
-      - text: megeszem a csipám és visszaalszom (3)
-        action: game_over:Örökre elszunnyadsz, ébresztőd kommoszként szól a háttérben.
+      - text: megeszem a csipám és visszaalszom
+        action: game_over:Örökre elszunnyadsz, ébresztőd kommoszként szól a háttérben. ENDING 1/?
       - text: kinyomom az ébresztőt
         action: stage:alarm_out
   - id: alarm_out
     text: Kinyomtad az ébresztőt
     buttons:
       - text: korán van tesó, még visszaalszom
+        action: stage:none
+      - text: felkelek, a picsába már
+        action: stage:none
+      - text: megeszem a csipám és visszaalszom
+        action: game_over:Örökre elszunnyadsz nyugalomban. ENDING 2/?
+      - text: beállítok egy újat
+        action: stage:mikor
+  - id: mikor
+    text: Mikorra?
+    buttons:
+      - text: "5:00"
+        action: stage:cigany
+      - text: "5:40"
+        action: stage:none
+      - text: "6:00"
+        action: stage:none
+      - text: "9:00"
+        action: stage:none
+  - id: cigany
+    text: A döntésed eredményeképp az idő csinált egy cigánykereket (xd) és elindult visszafelé. Felkelsz 5:00-kor.
+    buttons:
+      - text: Hä?! Hogy lett 5 óra? Na m1, biztos álmodtam, visszaalszom, korán van még.
+        action: stage:apokalipszis
+      - text: felkelek na
+        action: stage:none
+      - text: úgy teszek mintha nem hallanám
+        action: stage:de
+      - text: kinyomom az ébresztőt.
+        action: stage:none
+  - id: apokalipszis
+    text: Hajnal 1 órakor felkelsz az apokalipszis zengő zajaira.
+    buttons:
+      - text: kurva anyjuk, mocskos bagázs, visszaalszom
+        action: game_over:Éjfélkor egy időhurok felakaszt téged, miután megragad téged, felkelsz a még mindig szóló ébresztődre, 20 perc intenzív szenvedés után elhalálozol. ENDING 3/?
+      - text: felkelek
+        action: stage:none
+      - text: Kiüvöltök az ágyból, hogy fejezzék már be, kibaszott korán van ehhez.
+        action: game_over:A mérges úriemberek nem sok szenvedés után bejutnak a házba, és felnyársalnak. Ébresztőd kommoszként szól a háttérben. ENDING 4/?
+      - text: kinyomom az ébresztőt.
+        action: stage:none
   - id: none
     text: bocsi ezt nem programoztam be
     buttons:
