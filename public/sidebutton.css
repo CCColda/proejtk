@@ -16,9 +16,16 @@
 	transition: 0.5s;
 }
 
-.sidebutton:hover {
-	background-color: var(--button-background-hover);
+.sidebutton:active {
+	background-color: var(--button-background-click);
 }
+
+@media only screen {
+	.sidebutton:hover {
+		background-color: var(--button-background-hover);
+	}
+}
+
 
 /* extend to full height tablets */
 @media (min-width: 481px) and (max-width: 768px) {
