@@ -32,7 +32,9 @@
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "react-markdown": "^7.0.1",
+    "xtea": "^1.0.0",
     "yaml": "^1.10.2"
   }
 }

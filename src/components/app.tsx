@@ -1,8 +1,8 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
-import * as yaml from 'yaml';
+import { Action, ActionType, Stage, StageData } from '../stage';
 
-import { Action, ActionType, Stage, StageFile } from '../types';
+import { loadStageFile } from '../stagefile';
 
 // TODO: use css loader
 
@@ -12,12 +12,14 @@ export type AppProps = {
 
 export type AppState = {
 	stage: Stage,
-	phone: boolean
+	phone: boolean,
+	keyprompt: boolean,
 };
 
 export default class App extends React.Component<AppProps, AppState> {
-	private stageFile?: StageFile;
+	private stageData?: StageData;
 	private media: MediaQueryList;
+	private key: string | null;
 	// TODO: private history?: Stage[];
 
 	constructor(props: AppProps) {
@@ -25,34 +27,27 @@ export default class App extends React.Component<AppProps, AppState> {
 
 		this.media = window.matchMedia("(max-width: 480px)");
 
+		this.key = window.localStorage.getItem("key") ?? null;
+
 		this.state = {
 			stage: {
-				id: "_loading", "text": "", buttons: []
+				id: "(loading)", "text": "", buttons: []
 			},
-			phone: this.media.matches
+			phone: this.media.matches,
+			keyprompt: false
 		};
 
 		this.media.onchange = mqle => this.setState({ phone: mqle.matches });
 
-		this.fetchStageFile().then(v => {
-			this.stageFile = v;
-			this.setState({ stage: this.stageFile.stages[0] })
-		});
-	}
-
-	private async fetchStageFile(): Promise<StageFile> {
-		const resp = await fetch(this.props.stagefile, {
-			method: "GET", headers: {
-				"Accept": "application/json,text/yaml,text/x-yaml,application/x-yaml,text/vnd.yaml"
+		loadStageFile(this.props.stagefile, this.key).then(([e, v]) => {
+			if (e == "success") {
+				this.stageData = v as StageData;
+				this.setState({ stage: this.stageData.stages[0] })
+			}
+			else {
+				this.setState({ keyprompt: true });
 			}
 		});
-
-		if (resp.headers.get("Content-Type").match("application/json")) {
-			return await resp.json();
-		}
-		else {
-			return yaml.parse(await resp.text());
-		}
 	}
 
 	private renderButtons(list: number[]) {
@@ -72,6 +67,37 @@ export default class App extends React.Component<AppProps, AppState> {
 				}
 			)}
 		</>;
+	}
+
+	private renderKeyPrompt() {
+		let inputRefNode: HTMLInputElement;
+		let submitRefNode: HTMLButtonElement;
+		return <div id="prompt">
+			<h1>{!this.key ? "A feloldáshoz jelszó szükséges" : "Helytelen jelszó"}</h1>
+			<form onSubmit={async (ev) => {
+				ev.preventDefault();
+				this.key = inputRefNode.value;
+				submitRefNode.disabled = true;
+
+				const [e, v] = await loadStageFile(this.props.stagefile, this.key)
+				submitRefNode.disabled = false;
+
+				if (e == "success") {
+					// TODO: manage per stagefile
+					window.localStorage.setItem("key", this.key);
+
+					this.stageData = v as StageData;
+
+					this.setState({ stage: this.stageData.stages[0], keyprompt: false });
+				}
+				else {
+					inputRefNode.value = "";
+				}
+			}}>
+				<input type="password" placeholder="Jelszó" ref={node => inputRefNode = node}></input>
+				<button type="submit" ref={node => submitRefNode = node}>Feloldás</button>
+			</form>
+		</div>;
 	}
 
 	private static processAction(action: string | Action): Action | null {
@@ -111,7 +137,7 @@ export default class App extends React.Component<AppProps, AppState> {
 			}
 			case "stage": {
 				const newStage = typeof processedAction.stage == "string"
-					? this.stageFile.stages.find(v => v.id == processedAction.stage)
+					? this.stageData.stages.find(v => v.id == processedAction.stage)
 					: processedAction.stage;
 
 				if (newStage) {
@@ -126,6 +152,7 @@ export default class App extends React.Component<AppProps, AppState> {
 
 	render() {
 		return <>
+			{this.state.keyprompt ? this.renderKeyPrompt() : <></>}
 			<div id="header">
 
 			</div>

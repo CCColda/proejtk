@@ -1,4 +1,5 @@
 @import './sidebutton.css';
+@import './prompt.css';
 
 :root {
 	--background: black;
@@ -11,6 +12,9 @@
 	--button-background-click: #6E0000;
 	--button-foreground: white;
 	--button-shadow: #222222;
+
+	--prompt-foreground: white;
+	--prompt-background: #200000;
 }
 
 html, body, #content {
@@ -30,7 +34,6 @@ html, body, #content {
 
 #header, #footer {
 	height: 10%;
-	background-color: black;
 }
 
 #main {
@@ -48,7 +51,6 @@ html, body, #content {
 }
 
 .sidepanel {
-	color: black;
 	width: 20%;
 	height: 80%;
 

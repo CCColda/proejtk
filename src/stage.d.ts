@@ -19,6 +19,21 @@ export type Stage = OptionalID & {
 	buttons: Button[],
 };
 
-export type StageFile = {
+type StageFileBase = {
+	title: string,
+	author: string,
+};
+
+type StageFileData = {
+	start?: string,
 	stages: (ID & Stage)[],
 };
+
+type EncryptedStageFileData = { encrypted: true, size: number, data: string };
+interface TextualStageFileData extends StageFileData {
+	encrypted?: false
+}
+
+export type StageFile = StageFileBase & (EncryptedStageFileData | TextualStageFileData);
+
+export type StageData = StageFileBase & StageFileData;

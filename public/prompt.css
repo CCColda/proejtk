@@ -1,0 +1,29 @@
+#prompt {
+	position: fixed;
+
+	top: 50%;
+	transform: translateY(-50%);
+
+	width: 100%;
+
+	color: var(--prompt-foreground);
+	background-color: var(--prompt-background);
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+#prompt form input, #prompt form button {
+	border: none;
+
+	margin-bottom: 1em;
+
+	height: 3rem;
+	border-radius: 5px;
+	padding: 0 1em;
+}
+
+#prompt form input {
+	margin-right: 1rem;
+}
