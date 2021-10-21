@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import { RegistryFile } from '../registry';
 import { loadRegistry } from '../registryfile';
 import { StageFileBase } from '../stage';

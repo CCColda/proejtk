@@ -6,6 +6,12 @@ const config = {
 	entry: {
 		index: "./src/components/index.tsx"
 	},
+	externals: {
+		'react': 'React',
+		'react-dom': 'ReactDOM',
+		'react-router-dom': 'ReactRouterDOM',
+		'react-markdown': 'ReactMarkdown'
+	},
 	output: {
 		path: path.resolve(__dirname, "public", "dist"),
 		publicPath: "./public/",

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { useLocation } from 'react-router-dom';
+import * as ReactRouterDOM from 'react-router-dom';
 import { PATHS } from '../constants';
 import StageComponentRoute from './stage';
 import StageSelectorComponentRoute from './stageselector';
 
 const RouterComponent: React.FC = () => {
-	const query = new URLSearchParams(useLocation().search);
+	const query = new URLSearchParams(ReactRouterDOM.useLocation().search);
 	const stage = query.get("stage");
 
 	const safeStage = stage && decodeURIComponent(stage).replace(/[^a-zA-Z0-9_\.\- ]/g, '_');
