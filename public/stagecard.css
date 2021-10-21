@@ -17,12 +17,14 @@
 	transition: 0.5s background-color;
 }
 
-.stagecard:hover {
+.stagecard:active {
 	background-color: var(--button-background-click);
 	text-decoration: none;
 }
 
-.stagecard:active {
-	background-color: var(--button-background-click);
-	text-decoration: none;
+@media only screen {
+	.stagecard:hover {
+		background-color: var(--button-background-click);
+		text-decoration: none;
+	}
 }

@@ -59,7 +59,7 @@ export default class StageComponent extends React.Component<StageComponentProps,
 					this.setState({
 						stage: {
 							id: "(invalid)",
-							text: "# Ilyen oldal nem létezik\n\n_(vagy nem sikerült betölteni)_\n\n\n\n\n\n> Tudtad? Ez víz: 💧",
+							text: "# Ilyen oldal nem létezik\n\n_(vagy nem sikerült betölteni)_\n\n\n\n\n\nKeresgélj inkább a [főoldalon 💧](./)",
 							buttons: [],
 						}
 					});
