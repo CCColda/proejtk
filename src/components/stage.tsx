@@ -1,33 +1,37 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
+import { RouteComponentProps, RouteProps } from 'react-router';
+import { ERRORS } from '../constants';
+import KeyStorage from '../keystorage';
 import { Action, ActionType, Stage, StageData } from '../stage';
 
 import { loadStageFile } from '../stagefile';
 
 // TODO: use css loader
 
-export type AppProps = {
-	stagefile: string
+export type StageComponentProps = {
+	stage: string,
+	stagefiles: string,
 };
 
-export type AppState = {
+export type StageComponentState = {
 	stage: Stage,
 	phone: boolean,
 	keyprompt: boolean,
 };
 
-export default class App extends React.Component<AppProps, AppState> {
+export default class StageComponent extends React.Component<StageComponentProps, StageComponentState> {
 	private stageData?: StageData;
 	private media: MediaQueryList;
 	private key: string | null;
 	// TODO: private history?: Stage[];
 
-	constructor(props: AppProps) {
+	constructor(props: StageComponentProps) {
 		super(props);
 
 		this.media = window.matchMedia("(max-width: 480px)");
 
-		this.key = window.localStorage.getItem("key") ?? null;
+		this.key = KeyStorage.getKey(this.props.stage);
 
 		this.state = {
 			stage: {
@@ -39,13 +43,28 @@ export default class App extends React.Component<AppProps, AppState> {
 
 		this.media.onchange = mqle => this.setState({ phone: mqle.matches });
 
-		loadStageFile(this.props.stagefile, this.key).then(([e, v]) => {
-			if (e == "success") {
-				this.stageData = v as StageData;
-				this.setState({ stage: this.stageData.stages[0] })
-			}
-			else {
-				this.setState({ keyprompt: true });
+		loadStageFile(`${this.props.stagefiles}/${this.props.stage}`, this.key).then(([e, v]) => {
+			switch (e) {
+				case "success": {
+					this.stageData = v as StageData;
+					this.setState({ stage: this.stageData.stages[0] })
+					return;
+				}
+				case ERRORS.KEY_NEEDED: {
+					KeyStorage.resetKey(this.props.stage);
+					this.setState({ keyprompt: true });
+					return;
+				};
+				default: {
+					this.setState({
+						stage: {
+							id: "(invalid)",
+							text: "# Ilyen oldal nem létezik\n\n_(vagy nem sikerült betölteni)_\n\n\n\n\n\n> Tudtad? Ez víz: 💧",
+							buttons: [],
+						}
+					});
+					return;
+				}
 			}
 		});
 	}
@@ -79,12 +98,12 @@ export default class App extends React.Component<AppProps, AppState> {
 				this.key = inputRefNode.value;
 				submitRefNode.disabled = true;
 
-				const [e, v] = await loadStageFile(this.props.stagefile, this.key)
+				const [e, v] = await loadStageFile(`${this.props.stagefiles}/${this.props.stage}`, this.key)
 				submitRefNode.disabled = false;
 
 				if (e == "success") {
 					// TODO: manage per stagefile
-					window.localStorage.setItem("key", this.key);
+					KeyStorage.setKey(this.props.stage, this.key);
 
 					this.stageData = v as StageData;
 
@@ -121,7 +140,7 @@ export default class App extends React.Component<AppProps, AppState> {
 	}
 
 	private doAction(action: string | Action) {
-		const processedAction = App.processAction(action);
+		const processedAction = StageComponent.processAction(action);
 		if (!processedAction) return;
 
 		switch (processedAction.type) {
@@ -151,13 +170,13 @@ export default class App extends React.Component<AppProps, AppState> {
 	}
 
 	render() {
-		return <>
+		return <div className="stage">
 			{this.state.keyprompt ? this.renderKeyPrompt() : <></>}
-			<div id="header">
+			<div className="header">
 
 			</div>
-			<div id="main">
-				<div id="panels">
+			<div className="main">
+				<div className="panels">
 					<div className="sidepanel">
 						{
 							this.state.phone
@@ -165,7 +184,7 @@ export default class App extends React.Component<AppProps, AppState> {
 								: this.renderButtons([0, 2])
 						}
 					</div>
-					<div id="event_panel">
+					<div className="event_panel">
 						<p className="dev_stage_id">{this.state.stage.id ?? ""}</p>
 						<ReactMarkdown>{this.state.stage.text}</ReactMarkdown>
 					</div>
@@ -178,9 +197,9 @@ export default class App extends React.Component<AppProps, AppState> {
 					</div>
 				</div>
 			</div>
-			<div id="footer">
+			<div className="footer">
 
 			</div>
-		</>
+		</div>
 	}
 }

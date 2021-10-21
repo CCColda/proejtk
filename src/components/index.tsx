@@ -1,10 +1,16 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './app';
+import StageComponent from './stage';
+import { BrowserRouter, Route, Switch, useLocation } from 'react-router-dom';
+import StageSelectorComponentRoute from './stageselector';
+import StageComponentRoute from './stage';
+import RouterComponent from './router';
 
 const contentElement = document.getElementById("content");
 
 ReactDOM.render(
-	<App stagefile={contentElement.dataset.stagefile ?? ""} />,
+	<BrowserRouter>
+		<RouterComponent />
+	</BrowserRouter>,
 	contentElement
 );
