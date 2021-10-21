@@ -8,7 +8,7 @@ const RouterComponent: React.FC = () => {
 	const query = new URLSearchParams(useLocation().search);
 	const stage = query.get("stage");
 
-	const safeStage = stage && decodeURIComponent(stage).replace(/[^a-zA-Z_\.]/g, '_');
+	const safeStage = stage && decodeURIComponent(stage).replace(/[^a-zA-Z0-9_\.\- ]/g, '_');
 
 	return <>
 		{stage
