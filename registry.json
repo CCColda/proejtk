@@ -1,7 +1,7 @@
 {
 	"stages": [
 		"data.e.proejtk.yaml",
-		"atlagos_s60_elvezo_szimulator.e.proejtk.yaml",
+		"Atlagos_S60_elvezo_szimulator.e.proejtk.yaml",
 		"textbasedgame-example.proejtk.yaml"
 	]
 }
