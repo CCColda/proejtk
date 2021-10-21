@@ -1,0 +1,49 @@
+# Text based game competition példaanyag
+# COlda, 2021
+
+author: COlda
+title: Kurze deutsche Minuten
+stages:
+  - id: start
+    text: |
+      Nagyon izgi német óra elkezdődik,
+
+      JVZ: `Guten`
+    buttons:
+      - text: "Jómagam: `Tag`"
+        action: stage:tag # stage "tag" id-vel
+      - text: "Nem."
+        action: game_over:Megbuktál németből, és nem mehettél projektnapra 2021.10.25-én😥
+  - id: tag
+    text: "JVZ: `Setzt euch!`"
+    buttons:
+      - text: Leülök
+        action: game_over:Bölcs döntés (1) # rövid game over szöveg
+      - text: Szia, Zoli!
+        action:
+          type: stage
+          stage:
+            text: |
+              JVZ rádnéz,
+
+              `Schade... Ejnye`
+            buttons:
+              - text: Elszégyellem magam egy ásóval egy gödörbe.
+                action: # hosszú game over szöveg
+                  type: game_over
+                  message: Elásod magad a földszint 18-ban, kampec.
+              - text: Leülsz
+                action: game_over:Izmos döntés😎 (2)
+      - text: "Hangosan gondolkodom: `Hä?!`"
+        action:
+          type: stage
+          stage: # stage ID nélkül
+            text: |
+              JVZ kérdően rádtekint, majd kimegy a teremből.
+
+              A vér is beléd fagy.
+            buttons:
+              - text: Félsz, és vársz, hogy újra bejöjjön
+                action: stage:start # olyan stage, aminek van id-je
+              - text: Elkezded hangosan az Obst und Gemüse anyagot recsitálni
+                action: game_over:Tamás leütött egy doronggal, miközben kimondtad, hogy `der Kohlrabi`
