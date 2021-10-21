@@ -17,4 +17,22 @@
 	flex-direction: row;
 	align-items: flex-start;
 	justify-content: center;
+	overflow-y: auto;
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+	.stagelist {
+		width: 100%;
+	}
+}
+
+@media (max-width: 480px) {
+	.stagelist {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-items: center;
+
+		width: 100%;
+	}
 }
