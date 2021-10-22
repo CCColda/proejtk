@@ -2,7 +2,7 @@
 @import './prompt.css';
 @import './stage.css';
 @import './stageselector.css';
-@import './stagecard.css';
+@import './card.css';
 
 :root {
 	--background: black;
