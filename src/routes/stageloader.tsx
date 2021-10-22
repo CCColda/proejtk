@@ -2,7 +2,7 @@ import * as React from "react";
 import ReactMarkdown from "react-markdown";
 import { KeyPromptComponent } from "../components/prompt";
 import StageComponent from "../components/stage";
-import KeyStorage from "../data/keystorage";
+import Storage from "../data/storage";
 import { decryptStageFile } from "../data/stagefile";
 import { StageData, StageFile } from "../types/stage";
 
@@ -48,7 +48,7 @@ export default class StageLoaderRouteComponent<T extends {} = {}> extends React.
 			const decrypted = await decryptStageFile(this.state.stage as StageFile, key);
 
 			if (decrypted) {
-				KeyStorage.setKey(this.stage, key);
+				Storage.setKey(this.stage, key);
 
 				this.setState({ status: 'ready', stage: decrypted });
 			}
@@ -57,7 +57,7 @@ export default class StageLoaderRouteComponent<T extends {} = {}> extends React.
 
 	protected onReady(): JSX.Element {
 		try {
-			return <StageComponent stagedata={this.state.stage as StageData} />;
+			return <StageComponent stage={this.stage} stagedata={this.state.stage as StageData} />;
 		}
 		catch (exc) {
 			console.error(exc);
@@ -72,7 +72,7 @@ export default class StageLoaderRouteComponent<T extends {} = {}> extends React.
 			return false;
 
 		if (stagefile.encrypted) {
-			const key = KeyStorage.getKey(this.stage);
+			const key = Storage.getKey(this.stage);
 
 			if (key) {
 				const decrypted = await decryptStageFile(stagefile, key);

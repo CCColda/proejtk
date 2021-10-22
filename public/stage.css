@@ -10,6 +10,9 @@
 
 .header, .footer {
 	height: 10%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 .main {
@@ -50,14 +53,15 @@
 	height: 100%;
 }
 
-.dev_stage_id {
-	position: absolute;
+@keyframes progressreminder {
+	0% { opacity: 1; }
+	100% { opacity: 0; display: none; }
+}
 
-	bottom: 0;
-	left: 50%;
-	text-align: center;
-
-	color: gray;
+.progressreminder {
+	display: block;
+	user-select: none;
+	animation: progressreminder 5s ease-in forwards;
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -79,5 +83,15 @@
 	.event_panel {
 		width: 90%;
 		margin-bottom: 0.5em;
+	}
+
+	.footer {
+		align-items: center;
+	}
+
+	.footer :is(button, a) {
+		height: 100%;
+		padding: 0;
+		box-sizing: border-box;
 	}
 }
