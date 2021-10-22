@@ -4,7 +4,7 @@ const path = require('path');
 const config = {
 	mode: "production",
 	entry: {
-		index: "./src/components/index.tsx"
+		index: "./src/index.tsx"
 	},
 	externals: {
 		'react': 'React',

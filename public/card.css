@@ -1,4 +1,4 @@
-.stagecard {
+.card {
 	display: block;
 
 	background-color: var(--button-background);
@@ -17,20 +17,20 @@
 	transition: 0.5s background-color;
 }
 
-.stagecard:active {
+.card:active {
 	background-color: var(--button-background-click);
 	text-decoration: none;
 }
 
 @media only screen {
-	.stagecard:hover {
+	.card:hover {
 		background-color: var(--button-background-click);
 		text-decoration: none;
 	}
 }
 
 @media (max-width: 480px) {
-	.stagecard {
+	.card {
 		width: 90%;
 	}
 }

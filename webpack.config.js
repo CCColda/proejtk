@@ -4,7 +4,7 @@ const path = require('path');
 const config = {
 	mode: "development",
 	entry: {
-		index: "./src/components/index.tsx"
+		index: "./src/index.tsx"
 	},
 	output: {
 		path: path.resolve(__dirname, "public", "dist"),

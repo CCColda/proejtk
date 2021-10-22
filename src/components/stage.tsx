@@ -1,72 +1,37 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { RouteComponentProps, RouteProps } from 'react-router';
-import { ERRORS } from '../constants';
-import KeyStorage from '../keystorage';
-import { Action, ActionType, Stage, StageData } from '../stage';
 
-import { loadStageFile } from '../stagefile';
+import { Action, ActionType, Stage, StageData } from '../types/stage';
 
 // TODO: use css loader
 
 export type StageComponentProps = {
-	stage: string,
-	stagefiles: string,
+	stagedata: StageData,
 };
 
 export type StageComponentState = {
 	stage: Stage,
 	phone: boolean,
-	keyprompt: boolean,
 };
 
 export default class StageComponent extends React.Component<StageComponentProps, StageComponentState> {
-	private stageData?: StageData;
 	private media: MediaQueryList;
-	private key: string | null;
-	// TODO: private history?: Stage[];
 
 	constructor(props: StageComponentProps) {
 		super(props);
 
 		this.media = window.matchMedia("(max-width: 480px)");
-
-		this.key = KeyStorage.getKey(this.props.stage);
-
 		this.state = {
-			stage: {
-				id: "(loading)", "text": "", buttons: []
-			},
-			phone: this.media.matches,
-			keyprompt: false
+			stage:
+				(
+					this.props.stagedata.start
+					&& this.props.stagedata.stages.find(v => v.id == this.props.stagedata.start)
+				)
+				?? this.props.stagedata.stages[0],
+			phone: this.media.matches
 		};
 
 		this.media.onchange = mqle => this.setState({ phone: mqle.matches });
-
-		loadStageFile(`${this.props.stagefiles}/${this.props.stage}`, this.key).then(([e, v]) => {
-			switch (e) {
-				case "success": {
-					this.stageData = v as StageData;
-					this.setState({ stage: this.stageData.stages[0] })
-					return;
-				}
-				case ERRORS.KEY_NEEDED: {
-					KeyStorage.resetKey(this.props.stage);
-					this.setState({ keyprompt: true });
-					return;
-				};
-				default: {
-					this.setState({
-						stage: {
-							id: "(invalid)",
-							text: "# Ilyen oldal nem létezik\n\n_(vagy nem sikerült betölteni)_\n\n\n\n\n\nKeresgélj inkább a [főoldalon 💧](./)",
-							buttons: [],
-						}
-					});
-					return;
-				}
-			}
-		});
 	}
 
 	private renderButtons(list: number[]) {
@@ -86,37 +51,6 @@ export default class StageComponent extends React.Component<StageComponentProps,
 				}
 			)}
 		</>;
-	}
-
-	private renderKeyPrompt() {
-		let inputRefNode: HTMLInputElement;
-		let submitRefNode: HTMLButtonElement;
-		return <div id="prompt">
-			<h1>{!this.key ? "A feloldáshoz jelszó szükséges" : "Helytelen jelszó"}</h1>
-			<form onSubmit={async (ev) => {
-				ev.preventDefault();
-				this.key = inputRefNode.value;
-				submitRefNode.disabled = true;
-
-				const [e, v] = await loadStageFile(`${this.props.stagefiles}/${this.props.stage}`, this.key)
-				submitRefNode.disabled = false;
-
-				if (e == "success") {
-					// TODO: manage per stagefile
-					KeyStorage.setKey(this.props.stage, this.key);
-
-					this.stageData = v as StageData;
-
-					this.setState({ stage: this.stageData.stages[0], keyprompt: false });
-				}
-				else {
-					inputRefNode.value = "";
-				}
-			}}>
-				<input type="password" placeholder="Jelszó" ref={node => inputRefNode = node}></input>
-				<button type="submit" ref={node => submitRefNode = node}>Feloldás</button>
-			</form>
-		</div>;
 	}
 
 	private static processAction(action: string | Action): Action | null {
@@ -155,14 +89,19 @@ export default class StageComponent extends React.Component<StageComponentProps,
 				break;
 			}
 			case "stage": {
-				const newStage = typeof processedAction.stage == "string"
-					? this.stageData.stages.find(v => v.id == processedAction.stage)
-					: processedAction.stage;
+				try {
+					const newStage = typeof processedAction.stage == "string"
+						? this.props.stagedata.stages.find(v => v.id == processedAction.stage)
+						: processedAction.stage;
 
-				if (newStage) {
-					this.setState({
-						stage: newStage
-					});
+					if (newStage) {
+						this.setState({
+							stage: newStage
+						});
+					}
+				}
+				catch (exc) {
+					console.error(exc);
 				}
 				break;
 			}
@@ -171,7 +110,6 @@ export default class StageComponent extends React.Component<StageComponentProps,
 
 	render() {
 		return <div className="stage">
-			{this.state.keyprompt ? this.renderKeyPrompt() : <></>}
 			<div className="header">
 
 			</div>

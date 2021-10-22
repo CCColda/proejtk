@@ -1,4 +1,4 @@
-#prompt {
+.prompt {
 	position: fixed;
 
 	top: 50%;
@@ -14,7 +14,11 @@
 	flex-direction: column;
 }
 
-#prompt form input, #prompt form button {
+.prompt form :not(:last-child) {
+	margin-right: 1em;
+}
+
+.prompt .input {
 	border: none;
 
 	margin-bottom: 1em;
@@ -22,8 +26,10 @@
 	height: 3rem;
 	border-radius: 5px;
 	padding: 0 1em;
+
+	transition: 0.3s border;
 }
 
-#prompt form input {
-	margin-right: 1rem;
+.prompt .input.invalid {
+	border: 2px solid red !important;
 }

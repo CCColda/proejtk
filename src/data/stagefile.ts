@@ -1,22 +1,15 @@
 import { decrypt } from 'xtea';
 import * as yaml from 'yaml';
-import { StageData, StageFile, StageFileBase } from './stage';
 import { Buffer } from 'buffer/';
-import { ERRORS } from './constants';
+import { STAGEFILE_MIMES } from './constants';
 
-const ACCEPTED_MIME = Object.freeze([
-	"application/json", "text/yaml", "text/x-yaml",
-	"application/x-yaml", "text/vnd.yaml"
-]);
-
-export type LoadStageResult =
-	["success", StageData] | [number, {}];
+import { StageData, StageFile, StageFileBase } from '../types/stage';
 
 function padBuffer(buffer: Buffer, length: number, fill: number = 0x00) {
 	return Buffer.concat([buffer, Buffer.alloc(Math.max(0.0, length - buffer.length), fill)]);
 }
 
-export function decryptStageData(data: string, size: number, key: string): StageData | null {
+function decryptStageData(data: string, size: number, key: string): StageData | null {
 	const keybuffer = Buffer.from(key);
 	const keybytexor = keybuffer.reduce((a, b) => a ^ b);
 
@@ -39,10 +32,10 @@ export function decryptStageData(data: string, size: number, key: string): Stage
 	}
 }
 
-async function loadStageFileRaw(path: string): Promise<StageFile | null> {
+export async function loadStageFileRaw(path: string): Promise<StageFile | null> {
 	const resp = await fetch(path, {
 		method: "GET", headers: {
-			"Accept": ACCEPTED_MIME.join(',')
+			"Accept": STAGEFILE_MIMES.join(',')
 		}
 	});
 
@@ -74,26 +67,46 @@ export async function loadStageFileMeta(path: string): Promise<StageFileBase | n
 	};
 }
 
-export async function loadStageFile(path: string, key?: string): Promise<LoadStageResult> {
-	const stagefile = await loadStageFileRaw(path);
-
-	if (!stagefile)
-		return [ERRORS.PARSE, {}];
-
+export async function decryptStageFile(stagefile: StageFile, key: string): Promise<StageData | null> {
 	// todo: 
 	// intellisense made me do this
 	if (stagefile.encrypted == true) {
-		if (!key)
-			return [ERRORS.KEY_NEEDED, {}];
-
 		const decrypted = decryptStageData(stagefile.data, stagefile.size, key);
 
 		if (!decrypted)
-			return [ERRORS.DECRYPT, {}];
+			return null;
 
-		return ["success", decrypted];
+		return decrypted;
 	}
 	else {
-		return ["success", stagefile];
+		return stagefile;
 	}
+};
+
+export function loadLocalStageFileRaw(blob: Blob): Promise<StageFile | null> {
+	return new Promise((res, rej) => {
+		const reader = new FileReader();
+		reader.onload = () => {
+			const textData = typeof reader.result == "string"
+				? reader.result
+				: new TextDecoder().decode(reader.result);
+
+			try {
+				return res(JSON.parse(textData));
+			} catch (exc) { // TODO: this hurts my eyes
+				console.error("JSON parse error", exc);
+				try {
+					return res(yaml.parse(textData));
+				} catch (exc) {
+					console.error("YAML parse error", exc);
+					return res(null);
+				}
+			}
+		};
+
+		reader.onabort = rej;
+		reader.onerror = rej;
+
+		reader.readAsText(blob, "utf-8");
+	});
 }

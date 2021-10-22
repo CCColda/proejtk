@@ -9,7 +9,7 @@
     "build-prod": "npx webpack --config webpack.config.prod.js",
     "predeploy": "npm run build-prod",
     "deploy": "gh-pages -d public",
-    "build-schema": "npx typescript-json-schema src/types.d.ts StageFile -o schema.json",
+    "build-schema": "npx typescript-json-schema src/types/stage.d.ts StageFile -o schema.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
