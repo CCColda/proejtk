@@ -1,0 +1,1779 @@
+author: Levhy
+title: Sus kalandok Foldavéval
+stages:
+  - id: start
+    text: Éppen otthon ülsz és MC ISTI-től hallgatod a Fehér f@sz című muzsikát, mikor egy hirtelen késztetést érzel, hogy csinálj valamit.
+    buttons:
+      - text: A Gellért-hegy egy kecsegtető hely.
+        action: stage:gellert
+      - text: A fa.
+        action: stage:fa
+      - text: Inkább továbbhallgatom ezt a mesterművet.
+        action: game_over:Annyira beszippantott a muzsika, hogy egész nap ezt hallgattad. Kicsit szomorú vagy, hogy nem csináltál ma semmi mást.
+  - id: fa
+    text: Hol keresed?
+    buttons:
+      - text: Tiszanána u. 54.
+        action: game_over:Rossz hely. Ott csak Ati van. Miután Atival lepacsiztál vagy esetlegesen kezet fogtál (sus), hazaballagtál. Kicsit szomorú vagy, hogy nem tudtál így ma csinálni semmit.
+      - text: Dubai.
+        action: game_over:Ott csak Dani van, éppen román tradíciókat követ, nem akarod megzavarni. Elbuktad a küldetésed és hazaballagtál. Kicsit szomorú vagy, hogy nem tudtál így ma csinálni semmit.
+      - text: A sulkó udvarán.
+        action: game_over:Ott csak Foldave van, a nagy sietségben nekirohansz, lepattansz, és a házadban landolsz. Elbuktad a küldetésed. Kicsit szomorú vagy, hogy nem tudtál így ma csinálni semmit.
+      - text: Nagytarcsán.
+        action: stage:nagytarcsa
+  - id: nagytarcsa
+    text: Odaérsz, és az egyetlen dolog ami ott van, az egy fa. Úgy érzed megtaláltad. Odamész hozzá?
+    buttons:
+      - text: Igen.
+        action: game_over:Kiderült, hogy ez csak egy csapda. Közel mész hozzá és egyszer csak elnyel a föld. Itt a vége a kalandodnak.
+      - text: Nem.
+        action: game_over:Rájöttél, hogy a látványa teljes mértékben elég a számodra. Hazaballagsz fáradtan. Úgy érzed ez nem volt egy szar nap.
+  - id: gellert
+    text: Másfél óra utazás után odaértél a Gellértre. Miért is jöttél ide?
+    buttons:
+      - text: 0.5 ekis cigi a srácokkal.
+        action: stage:nullot
+      - text: Medve matek.
+        action: stage:medvematek
+      - text: nem tudom :(
+        action: game_over:Összezavarodtál, nem tudod, hogy mit kerestél Gellérten, idegesen hazamentél és továbbhallgattad a zsenialitást. Kicsit szomorú vagy, hogy nem csináltál ma semmit.
+  - id: medvematek
+    text: Felgurulsz a meredek lépcsőn a Medve Matekra.
+    buttons:
+      - text: Elkezdem Jegesmedve karrierem.
+        action: stage:verseny
+      - text: Továbbgurulok.
+        action: stage:dave2
+      - text: Tökéletes idő egy ekis cigire.
+        action: stage:ekimatek3
+      - text: Nem tetszik, haza akarok menni :///
+        action: game_over:Hazamentél és továbbhallgattad a zsenialitást. Kicsit szomorú vagy, hogy nem csináltál ma semmit. (**Akkor menjen haza!**)
+  - id: verseny
+    text: Az ajánlott elemózsiát átvetted. A verseny előtt elmagyarázzák, hogy ez egy 12 állomásos verseny, ahol végig kell menned az állomásokon a megadott sorrendben, a feladatok egyre nehezebbek lesznek, de ha egyet is elrontasz, kiestél. Elkezdődik a verseny. Az első állomásod a "B". Merre indulsz el? (*Az irányokat abból a szempontból válaszd, hogy mindig előre nézel*)
+    buttons:
+      - text: Előre.
+        action: stage:0medvedave
+      - text: Hátra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:0b
+      - text: Balra.
+        action: stage:0k
+  - id: lepcso
+    text: Nem figyeltél, hogy merre mész, visszamentél a lépcsőhöz, ahonnan jöttél, megcsúsztál, éppen esel lefele a lépcsőn.
+    buttons:
+      - text: Megragadok egy lépcsőfokot, hátha meg tudom állítani az esésem.
+        action: game_over:Nem sikerült, de így egy törött karral gurultál le és estél végzetedbe.
+      - text: Elfogadom sorsom.
+        action: game_over:Legurultál és egy nagy placcsanással értél földet, meghaltál.
+  - id: 0medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:0start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 0start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:0medvedave
+      - text: Balra.
+        action: stage:0k
+      - text: Jobbra.
+        action: stage:0b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 0a
+    text: Az "A" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Jobbra.
+        action: stage:0g
+      - text: Hátra.
+        action: stage:0i
+  - id: 0b
+    text: A "B" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - Mennyi 2+1?
+    buttons:
+      - text: Szia Zoli.
+        action: game_over:A válaszod rossz. Kiestél 0 ponttal a zsebedben. Ettől a teljesítménytől annyira elszomorodsz, hogy felmondasz és ledobod magad a hegyről, elérve megérdemelt sorsod.
+      - text: "3"
+        action: stage:0bjo
+      - text: "4"
+        action: game_over:A válaszod rossz. Kiestél 0 ponttal a zsebedben. Ettől a teljesítménytől annyira elszomorodsz, hogy felmondasz és ledobod magad a hegyről, elérve megérdemelt sorsod.
+      - text: "2 és -2, egyszerűen kijön a másodfokú megoldóképletet használva."
+        action: game_over:A válaszod rossz. Kiestél 0 ponttal a zsebedben. Ettől a teljesítménytől annyira elszomorodsz, hogy felmondasz és ledobod magad a hegyről, elérve megérdemelt sorsod.
+  - id: 0c
+    text: A "C" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:0f
+      - text: Hátra
+        action: stage:0e
+  - id: 0d
+    text: A "D" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:0j
+      - text: Jobbra.
+        action: stage:lepcso
+      - text: Előre.
+        action: stage:0k
+  - id: 0e
+    text: Az "E" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:0c
+      - text: Balra.
+        action: stage:0b
+      - text: Hátra.
+        action: stage:0l
+  - id: 0f
+    text: Az "F" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:0medvedave
+      - text: Jobbra.
+        action: stage:0c
+      - text: Hátra.
+        action: stage:0b
+  - id: 0g
+    text: A "G" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:0a
+      - text: Jobbra.
+        action: stage:0medvedave
+      - text: Hátra.
+        action: stage:0k
+  - id: 0h
+    text: A "H" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:0b
+      - text: Balra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:0l
+  - id: 0i
+    text: Az "I" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:0a
+      - text: Jobbra.
+        action: stage:0k
+      - text: Hátra.
+        action: stage:0j
+  - id: 0j
+    text: A "J" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:0i
+      - text: Jobbra.
+        action: stage:0d
+  - id: 0k
+    text: A "K" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:0g
+      - text: Balra.
+        action: stage:0i
+      - text: Jobbra.
+        action: stage:0start
+      - text: Hátra.
+        action: stage:0d
+  - id: 0l
+    text: Az "L" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:0e
+      - text: Balra.
+        action: stage:0h
+  - id: 0bjo
+    text: A válaszod jó. Az "F" állomás a következő célpontod. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:1f
+      - text: Balra.
+        action: stage:1start
+      - text: Jobbra.
+        action: stage:1e
+      - text: Hátra.
+        action: stage:1h
+  - id: 1medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:1start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 1start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:1medvedave
+      - text: Balra.
+        action: stage:1k
+      - text: Jobbra.
+        action: stage:1b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 1a
+    text: Az "A" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Jobbra.
+        action: stage:1g
+      - text: Hátra.
+        action: stage:1i
+  - id: 1b
+    text: A "B" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:1f
+      - text: Balra.
+        action: stage:1start
+      - text: Jobbra.
+        action: stage:1e
+      - text: Hátra.
+        action: stage:1h
+  - id: 1c
+    text: A "C" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:1f
+      - text: Hátra
+        action: stage:1e
+  - id: 1d
+    text: A "D" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:1j
+      - text: Jobbra.
+        action: stage:lepcso
+      - text: Előre.
+        action: stage:1k
+  - id: 1e
+    text: Az "E" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:1c
+      - text: Balra.
+        action: stage:1b
+      - text: Hátra.
+        action: stage:1l
+  - id: 1f
+    text: Az "F" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - Mennyi 6x8?
+    buttons:
+      - text: "69"
+        action: game_over:A válaszod rossz. Kiestél 1 ponttal a zsebedben. Ettől a teljesítménytől annyira elszomorodsz, hogy felmondasz és ledobod magad a hegyről, elérve megérdemelt sorsod.
+      - text: "68"
+        action: game_over:A válaszod rossz. Kiestél 1 ponttal a zsebedben. Ettől a teljesítménytől annyira elszomorodsz, hogy felmondasz és ledobod magad a hegyről, elérve megérdemelt sorsod.
+      - text: "42"
+        action: game_over:A válaszod rossz. Kiestél 1 ponttal a zsebedben. Ettől a teljesítménytől annyira elszomorodsz, hogy felmondasz és ledobod magad a hegyről, elérve megérdemelt sorsod.
+      - text: "48"
+        action: stage:1fjo
+  - id: 1g
+    text: A "G" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:1a
+      - text: Jobbra.
+        action: stage:1medvedave
+      - text: Hátra.
+        action: stage:1k
+  - id: 1h
+    text: A "H" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:1b
+      - text: Balra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:1l
+  - id: 1i
+    text: Az "I" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:1a
+      - text: Jobbra.
+        action: stage:1k
+      - text: Hátra.
+        action: stage:1j
+  - id: 1j
+    text: A "J" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:1i
+      - text: Jobbra.
+        action: stage:1d
+  - id: 1k
+    text: A "K" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:1g
+      - text: Balra.
+        action: stage:1i
+      - text: Jobbra.
+        action: stage:1start
+      - text: Hátra.
+        action: stage:1d
+  - id: 1l
+    text: Az "L" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:1e
+      - text: Balra.
+        action: stage:1h
+  - id: 1fjo
+    text: A válaszod jó. Az "G" állomás a következő célpontod. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:2medvedave
+      - text: Jobbra.
+        action: stage:2c
+      - text: Hátra.
+        action: stage:2b
+  - id: 2medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:2start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 2start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:2medvedave
+      - text: Balra.
+        action: stage:2k
+      - text: Jobbra.
+        action: stage:2b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 2a
+    text: Az "A" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Jobbra.
+        action: stage:2g
+      - text: Hátra.
+        action: stage:2i
+  - id: 2b
+    text: A "B" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:2f
+      - text: Balra.
+        action: stage:2start
+      - text: Jobbra.
+        action: stage:2e
+      - text: Hátra.
+        action: stage:2h
+  - id: 2c
+    text: A "C" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:2f
+      - text: Hátra
+        action: stage:2e
+  - id: 2d
+    text: A "D" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:2j
+      - text: Jobbra.
+        action: stage:lepcso
+      - text: Előre.
+        action: stage:2k
+  - id: 2e
+    text: Az "E" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:2c
+      - text: Balra.
+        action: stage:2b
+      - text: Hátra.
+        action: stage:2l
+  - id: 2f
+    text: Az "F" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:2medvedave
+      - text: Jobbra.
+        action: stage:2c
+      - text: Hátra.
+        action: stage:2b
+  - id: 2g
+    text: A "G" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - Mennyi (11x9)/120?
+    buttons:
+      - text: 33/40
+        action: stage:2gjo
+      - text: 34/40
+        action: game_over:A válaszod rossz. Kiestél 2 ponttal a zsebedben. Ettől a teljesítménytől annyira elszomorodsz, hogy felmondasz és ledobod magad a hegyről, elérve megérdemelt sorsod.
+      - text: 96/120
+        action: game_over:A válaszod rossz. Kiestél 2 ponttal a zsebedben. Ettől a teljesítménytől annyira elszomorodsz, hogy felmondasz és ledobod magad a hegyről, elérve megérdemelt sorsod.
+      - text: 13563/16440
+        action: stage:2gjo
+  - id: 2h
+    text: A "H" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:2b
+      - text: Balra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:2l
+  - id: 2i
+    text: Az "I" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:2a
+      - text: Jobbra.
+        action: stage:2k
+      - text: Hátra.
+        action: stage:2j
+  - id: 2j
+    text: A "J" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:2i
+      - text: Jobbra.
+        action: stage:2d
+  - id: 2k
+    text: A "K" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:2g
+      - text: Balra.
+        action: stage:2i
+      - text: Jobbra.
+        action: stage:2start
+      - text: Hátra.
+        action: stage:2d
+  - id: 2l
+    text: Az "L" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:2e
+      - text: Balra.
+        action: stage:2h
+  - id: 2gjo
+    text: A válaszod jó. Az "D" állomás a következő célpontod. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:3a
+      - text: Jobbra.
+        action: stage:3medvedave
+      - text: Hátra.
+        action: stage:3k
+  - id: 3medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:3start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 3start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:3medvedave
+      - text: Balra.
+        action: stage:3k
+      - text: Jobbra.
+        action: stage:3b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 3a
+    text: Az "A" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Jobbra.
+        action: stage:3g
+      - text: Hátra.
+        action: stage:3i
+  - id: 3b
+    text: A "B" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:3f
+      - text: Balra.
+        action: stage:3start
+      - text: Jobbra.
+        action: stage:3e
+      - text: Hátra.
+        action: stage:3h
+  - id: 3c
+    text: A "C" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:3f
+      - text: Hátra
+        action: stage:3e
+  - id: 3d
+    text: A "D" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - [Bronzmedve] - Melyik szöggfüggvényt lehet úgy kiszámolni, hogy elosztod a szöggel szemközti befogó hosszát a szöggel szomszédos befogó hosszával (a/b)?
+    buttons:
+      - text: koszinusz
+        action: game_over:A válaszod rossz. Kiestél 3 ponttal a zsebedben. Szomorúan ballagsz haza, sokkal többet el tudtál volna érni.
+      - text: szekáns
+        action: game_over:A válaszod rossz. Kiestél 3 ponttal a zsebedben. Szomorúan ballagsz haza, sokkal többet el tudtál volna érni.
+      - text: szinusz
+        action: game_over:A válaszod rossz. Kiestél 3 ponttal a zsebedben. Szomorúan ballagsz haza, sokkal többet el tudtál volna érni.
+      - text: tangens
+        action: stage:3djo
+  - id: 3e
+    text: Az "E" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:3c
+      - text: Balra.
+        action: stage:3b
+      - text: Hátra.
+        action: stage:3l
+  - id: 3f
+    text: Az "F" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:3medvedave
+      - text: Jobbra.
+        action: stage:3c
+      - text: Hátra.
+        action: stage:3b
+  - id: 3g
+    text: A "G" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:3a
+      - text: Jobbra.
+        action: stage:3medvedave
+      - text: Hátra.
+        action: stage:3k
+  - id: 3h
+    text: A "H" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:3b
+      - text: Balra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:3l
+  - id: 3i
+    text: Az "I" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:3a
+      - text: Jobbra.
+        action: stage:3k
+      - text: Hátra.
+        action: stage:3j
+  - id: 3j
+    text: A "J" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:3i
+      - text: Jobbra.
+        action: stage:3d
+  - id: 3k
+    text: A "K" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:3g
+      - text: Balra.
+        action: stage:3i
+      - text: Jobbra.
+        action: stage:3start
+      - text: Hátra.
+        action: stage:3d
+  - id: 3l
+    text: Az "L" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:3e
+      - text: Balra.
+        action: stage:3h
+  - id: 3djo
+    text: A válaszod jó. Az "E" állomás a következő célpontod. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:4k
+      - text: Balra.
+        action: stage:4j
+      - text: Jobbra.
+        action: stage:lepcso
+  - id: 4medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:4start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 4start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:4medvedave
+      - text: Balra.
+        action: stage:4k
+      - text: Jobbra.
+        action: stage:4b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 4a
+    text: Az "A" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Jobbra.
+        action: stage:4g
+      - text: Hátra.
+        action: stage:4i
+  - id: 4b
+    text: A "B" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:4f
+      - text: Balra.
+        action: stage:4start
+      - text: Jobbra.
+        action: stage:4e
+      - text: Hátra.
+        action: stage:4h
+  - id: 4c
+    text: A "C" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:4f
+      - text: Hátra
+        action: stage:4e
+  - id: 4d
+    text: A "D" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:4j
+      - text: Jobbra.
+        action: stage:lepcso
+      - text: Előre.
+        action: stage:4k
+  - id: 4e
+    text: Az "E" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - [Bronzmedve] - Hogy kell felbontani az (a+b)^3 azonosságot?
+    buttons:
+      - text: a^3 + b^3
+        action: game_over:A válaszod rossz. Kiestél 4 ponttal a zsebedben. Szomorúan ballagsz haza, sokkal többet el tudtál volna érni.
+      - text: a^3 + 3*a^2*b + 3*a*b^2 + b^3
+        action: stage:4ejo
+      - text: a^2 + 2ab + b^2
+        action: game_over:A válaszod rossz. Kiestél 4 ponttal a zsebedben. Szomorúan ballagsz haza, sokkal többet el tudtál volna érni.
+      - text: a^3 + a^2*b + 3*a^2*b^2 + a*b^2 + b^3
+        action: game_over:A válaszod rossz. Kiestél 4 ponttal a zsebedben. Szomorúan ballagsz haza, sokkal többet el tudtál volna érni.
+  - id: 4f
+    text: Az "F" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:4medvedave
+      - text: Jobbra.
+        action: stage:4c
+      - text: Hátra.
+        action: stage:4b
+  - id: 4g
+    text: A "G" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:4a
+      - text: Jobbra.
+        action: stage:4medvedave
+      - text: Hátra.
+        action: stage:4k
+  - id: 4h
+    text: A "H" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:4b
+      - text: Balra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:4l
+  - id: 4i
+    text: Az "I" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:4a
+      - text: Jobbra.
+        action: stage:4k
+      - text: Hátra.
+        action: stage:4j
+  - id: 4j
+    text: A "J" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:4i
+      - text: Jobbra.
+        action: stage:4d
+  - id: 4k
+    text: A "K" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:4g
+      - text: Balra.
+        action: stage:4i
+      - text: Jobbra.
+        action: stage:4start
+      - text: Hátra.
+        action: stage:4d
+  - id: 4l
+    text: Az "L" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:4e
+      - text: Balra.
+        action: stage:4h
+  - id: 4ejo
+    text: A válaszod jó. Az "H" állomás a következő célpontod. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:5c
+      - text: Balra.
+        action: stage:5b
+      - text: Hátra.
+        action: stage:5l
+  - id: 5medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:5start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 5start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:5medvedave
+      - text: Balra.
+        action: stage:5k
+      - text: Jobbra.
+        action: stage:5b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 5a
+    text: Az "A" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Jobbra.
+        action: stage:5g
+      - text: Hátra.
+        action: stage:5i
+  - id: 5b
+    text: A "B" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:5f
+      - text: Balra.
+        action: stage:5start
+      - text: Jobbra.
+        action: stage:5e
+      - text: Hátra.
+        action: stage:5h
+  - id: 5c
+    text: A "C" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:5f
+      - text: Hátra
+        action: stage:5e
+  - id: 5d
+    text: A "D" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:5j
+      - text: Jobbra.
+        action: stage:lepcso
+      - text: Előre.
+        action: stage:5k
+  - id: 5e
+    text: Az "E" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:5c
+      - text: Balra.
+        action: stage:5b
+      - text: Hátra.
+        action: stage:5l
+  - id: 5f
+    text: Az "F" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:5medvedave
+      - text: Jobbra.
+        action: stage:5c
+      - text: Hátra.
+        action: stage:5b
+  - id: 5g
+    text: A "G" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:5a
+      - text: Jobbra.
+        action: stage:5medvedave
+      - text: Hátra.
+        action: stage:5k
+  - id: 5h
+    text: A "H" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - [Bronzmedve] - Egészítsd ki a mondatot! Egy derékszögű háromszögnek 3 oldala van - 2 ... és 1 ...
+    buttons:
+      - text: befogó, átfogó
+        action: stage:5hjo
+      - text: kifogó, befogó
+        action: game_over:A válaszod rossz. Kiestél 5 ponttal a zsebedben. Szomorúan ballagsz haza, sokkal többet el tudtál volna érni.
+      - text: befogó, kifogó
+        action: game_over:A válaszod rossz. Kiestél 5 ponttal a zsebedben. Szomorúan ballagsz haza, sokkal többet el tudtál volna érni.
+      - text: átfogó, befogó
+        action: game_over:A válaszod rossz. Kiestél 5 ponttal a zsebedben. Szomorúan ballagsz haza, sokkal többet el tudtál volna érni.
+  - id: 5i
+    text: Az "I" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:5a
+      - text: Jobbra.
+        action: stage:5k
+      - text: Hátra.
+        action: stage:5j
+  - id: 5j
+    text: A "J" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:5i
+      - text: Jobbra.
+        action: stage:5d
+  - id: 5k
+    text: A "K" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:5g
+      - text: Balra.
+        action: stage:5i
+      - text: Jobbra.
+        action: stage:5start
+      - text: Hátra.
+        action: stage:5d
+  - id: 5l
+    text: Az "L" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:5e
+      - text: Balra.
+        action: stage:5h
+  - id: 5hjo
+    text: A válaszod jó. Az "L" állomás a következő célpontod. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:6c
+      - text: Balra.
+        action: stage:6b
+      - text: Hátra.
+        action: stage:6l
+  - id: 6medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:6start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 6start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:6medvedave
+      - text: Balra.
+        action: stage:6k
+      - text: Jobbra.
+        action: stage:6b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 6a
+    text: Az "A" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Jobbra.
+        action: stage:6g
+      - text: Hátra.
+        action: stage:6i
+  - id: 6b
+    text: A "B" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:6f
+      - text: Balra.
+        action: stage:6start
+      - text: Jobbra.
+        action: stage:6e
+      - text: Hátra.
+        action: stage:6h
+  - id: 6c
+    text: A "C" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:6f
+      - text: Hátra
+        action: stage:6e
+  - id: 6d
+    text: A "D" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:6j
+      - text: Jobbra.
+        action: stage:lepcso
+      - text: Előre.
+        action: stage:6k
+  - id: 6e
+    text: Az "E" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:6c
+      - text: Balra.
+        action: stage:6b
+      - text: Hátra.
+        action: stage:6l
+  - id: 6f
+    text: Az "F" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:6medvedave
+      - text: Jobbra.
+        action: stage:6c
+      - text: Hátra.
+        action: stage:6b
+  - id: 6g
+    text: A "G" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:6a
+      - text: Jobbra.
+        action: stage:6medvedave
+      - text: Hátra.
+        action: stage:6k
+  - id: 6h
+    text: A "H" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:6b
+      - text: Balra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:6l
+  - id: 6i
+    text: Az "I" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:6a
+      - text: Jobbra.
+        action: stage:6k
+      - text: Hátra.
+        action: stage:6j
+  - id: 6j
+    text: A "J" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:6i
+      - text: Jobbra.
+        action: stage:6d
+  - id: 6k
+    text: A "K" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:6g
+      - text: Balra.
+        action: stage:6i
+      - text: Jobbra.
+        action: stage:6start
+      - text: Hátra.
+        action: stage:6d
+  - id: 6l
+    text: Az "L" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - [Ezüstmedve] - Szorzás vagy összeadás esetén a tagokat fel lehet cserélni. Hogy hívják ezt a jelenséget?
+    buttons:
+      - text: disztributivitás
+        action: game_over:A válaszod rossz. Kiestél 6 ponttal a zsebedben. Kicsit büszkén pattogsz haza, de benned van, hogy többet is el tudtál volna érni.
+      - text: asszociativitás
+        action: game_over:A válaszod rossz. Kiestél 6 ponttal a zsebedben. Kicsit büszkén pattogsz haza, de benned van, hogy többet is el tudtál volna érni.
+      - text: kommutativitás
+        action: stage:6ljo
+      - text: antiasszociativitás
+        action: game_over:A válaszod rossz. Kiestél 6 ponttal a zsebedben. Kicsit büszkén pattogsz haza, de benned van, hogy többet is el tudtál volna érni.
+  - id: 6ljo
+    text: A válaszod jó. Az "I" állomás a következő célpontod. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:7e
+      - text: Balra.
+        action: stage:7h
+  - id: 7medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:7start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 7start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:7medvedave
+      - text: Balra.
+        action: stage:7k
+      - text: Jobbra.
+        action: stage:7b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 7a
+    text: Az "A" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Jobbra.
+        action: stage:7g
+      - text: Hátra.
+        action: stage:7i
+  - id: 7b
+    text: A "B" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:7f
+      - text: Balra.
+        action: stage:7start
+      - text: Jobbra.
+        action: stage:7e
+      - text: Hátra.
+        action: stage:7h
+  - id: 7c
+    text: A "C" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:7f
+      - text: Hátra
+        action: stage:7e
+  - id: 7d
+    text: A "D" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:7j
+      - text: Jobbra.
+        action: stage:lepcso
+      - text: Előre.
+        action: stage:7k
+  - id: 7e
+    text: Az "E" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:7c
+      - text: Balra.
+        action: stage:7b
+      - text: Hátra.
+        action: stage:7l
+  - id: 7f
+    text: Az "F" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:7medvedave
+      - text: Jobbra.
+        action: stage:7c
+      - text: Hátra.
+        action: stage:7b
+  - id: 7g
+    text: A "G" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:7a
+      - text: Jobbra.
+        action: stage:7medvedave
+      - text: Hátra.
+        action: stage:7k
+  - id: 7h
+    text: A "H" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:7b
+      - text: Balra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:7l
+  - id: 7i
+    text: Az "I" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - [Ezüstmedve] - Hol van az y = x+2 függvény zérushelye?
+    buttons:
+      - text: x = 2
+        action: game_over:A válaszod rossz. Kiestél 7 ponttal a zsebedben. Kicsit büszkén pattogsz haza, de benned van, hogy többet is el tudtál volna érni.
+      - text: x = -2
+        action: stage:7ijo
+      - text: x = 0
+        action: game_over:A válaszod rossz. Kiestél 7 ponttal a zsebedben. Kicsit büszkén pattogsz haza, de benned van, hogy többet is el tudtál volna érni.
+      - text: Nincs zérushelye.
+        action: game_over:A válaszod rossz. Kiestél 7 ponttal a zsebedben. Kicsit büszkén pattogsz haza, de benned van, hogy többet is el tudtál volna érni.
+  - id: 7j
+    text: A "J" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:7i
+      - text: Jobbra.
+        action: stage:7d
+  - id: 7k
+    text: A "K" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:7g
+      - text: Balra.
+        action: stage:7i
+      - text: Jobbra.
+        action: stage:7start
+      - text: Hátra.
+        action: stage:7d
+  - id: 7l
+    text: Az "L" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:7e
+      - text: Balra.
+        action: stage:7h
+  - id: 7ijo
+    text: A válaszod jó. Az "K" állomás a következő célpontod. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:8a
+      - text: Jobbra.
+        action: stage:8k
+      - text: Hátra.
+        action: stage:8j
+  - id: 8medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:8start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 8start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:8medvedave
+      - text: Balra.
+        action: stage:8k
+      - text: Jobbra.
+        action: stage:8b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 8a
+    text: Az "A" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Jobbra.
+        action: stage:8g
+      - text: Hátra.
+        action: stage:8i
+  - id: 8b
+    text: A "B" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:8f
+      - text: Balra.
+        action: stage:8start
+      - text: Jobbra.
+        action: stage:8e
+      - text: Hátra.
+        action: stage:8h
+  - id: 8c
+    text: A "C" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:8f
+      - text: Hátra
+        action: stage:8e
+  - id: 8d
+    text: A "D" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:8j
+      - text: Jobbra.
+        action: stage:lepcso
+      - text: Előre.
+        action: stage:8k
+  - id: 8e
+    text: Az "E" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:8c
+      - text: Balra.
+        action: stage:8b
+      - text: Hátra.
+        action: stage:8l
+  - id: 8f
+    text: Az "F" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:8medvedave
+      - text: Jobbra.
+        action: stage:8c
+      - text: Hátra.
+        action: stage:8b
+  - id: 8g
+    text: A "G" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:8a
+      - text: Jobbra.
+        action: stage:8medvedave
+      - text: Hátra.
+        action: stage:8k
+  - id: 8h
+    text: A "H" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:8b
+      - text: Balra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:8l
+  - id: 8i
+    text: Az "I" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:8a
+      - text: Jobbra.
+        action: stage:8k
+      - text: Hátra.
+        action: stage:8j
+  - id: 8j
+    text: A "J" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:8i
+      - text: Jobbra.
+        action: stage:8d
+  - id: 8k
+    text: A "K" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - [Ezüstmedve] - Van 10 különböző golyód. Hányféleképpen tudod 5 helyre behelyezni ezeket a golyókat?
+    buttons:
+      - text: 10!
+        action: game_over:A válaszod rossz. Kiestél 8 ponttal a zsebedben. Kicsit büszkén pattogsz haza, de benned van, hogy többet is el tudtál volna érni.
+      - text: 10! / (2*3*4*5*6)
+        action: game_over:A válaszod rossz. Kiestél 8 ponttal a zsebedben. Kicsit büszkén pattogsz haza, de benned van, hogy többet is el tudtál volna érni.
+      - text: 2*3*4*5*6
+        action: game_over:A válaszod rossz. Kiestél 8 ponttal a zsebedben. Kicsit büszkén pattogsz haza, de benned van, hogy többet is el tudtál volna érni.
+      - text: 10! / (2*3*4*5)
+        action: stage:8kjo
+  - id: 8l
+    text: Az "L" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:8e
+      - text: Balra.
+        action: stage:8h
+  - id: 8kjo
+    text: A válaszod jó. Az "A" állomás a következő célpontod. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:9g
+      - text: Balra.
+        action: stage:9i
+      - text: Jobbra.
+        action: stage:9start
+      - text: Hátra.
+        action: stage:9d
+  - id: 9medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:9start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 9start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:9medvedave
+      - text: Balra.
+        action: stage:9k
+      - text: Jobbra.
+        action: stage:9b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 9a
+    text: Az "A" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - [Aranymedve] - Ha tippelned kéne, mennyi pénz van tahó JVZ bankkártyáján?
+    buttons:
+      - text: 0 Ft
+        action: stage:9ajo
+      - text: -1500 Ft
+        action: stage:9ajo
+      - text: 200 Ft
+        action: game_over:A válaszod rossz. Kiestél 9 ponttal a zsebedben. Nagyon boldogan térsz haza, jó eredményt értél el. Bár nagyon büszke vagy teljesítményedre, a benned lévő maximalista azt érzi, hogy a max pontot is el tudtad volna érni.
+      - text: 20000 Ft
+        action: game_over:A válaszod rossz. Kiestél 9 ponttal a zsebedben. Nagyon boldogan térsz haza, jó eredményt értél el. Bár nagyon büszke vagy teljesítményedre, a benned lévő maximalista azt érzi, hogy a max pontot is el tudtad volna érni.
+  - id: 9b
+    text: A "B" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:9f
+      - text: Balra.
+        action: stage:9start
+      - text: Jobbra.
+        action: stage:9e
+      - text: Hátra.
+        action: stage:9h
+  - id: 9c
+    text: A "C" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:9f
+      - text: Hátra
+        action: stage:9e
+  - id: 9d
+    text: A "D" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:9j
+      - text: Jobbra.
+        action: stage:lepcso
+      - text: Előre.
+        action: stage:9k
+  - id: 9e
+    text: Az "E" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:9c
+      - text: Balra.
+        action: stage:9b
+      - text: Hátra.
+        action: stage:9l
+  - id: 9f
+    text: Az "F" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:9medvedave
+      - text: Jobbra.
+        action: stage:9c
+      - text: Hátra.
+        action: stage:9b
+  - id: 9g
+    text: A "G" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:9a
+      - text: Jobbra.
+        action: stage:9medvedave
+      - text: Hátra.
+        action: stage:9k
+  - id: 9h
+    text: A "H" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:9b
+      - text: Balra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:9l
+  - id: 9i
+    text: Az "I" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:9a
+      - text: Jobbra.
+        action: stage:9k
+      - text: Hátra.
+        action: stage:9j
+  - id: 9j
+    text: A "J" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:9i
+      - text: Jobbra.
+        action: stage:9d
+  - id: 9k
+    text: A "K" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:9g
+      - text: Balra.
+        action: stage:9i
+      - text: Jobbra.
+        action: stage:9start
+      - text: Hátra.
+        action: stage:9d
+  - id: 9l
+    text: Az "L" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:9e
+      - text: Balra.
+        action: stage:9h
+  - id: 9ajo
+    text: A válaszod jó. Az "J" állomás a következő célpontod. Merre mész?
+    buttons:
+      - text: Jobbra.
+        action: stage:10g
+      - text: Hátra.
+        action: stage:10i
+  - id: 10medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:10start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 10start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:10medvedave
+      - text: Balra.
+        action: stage:10k
+      - text: Jobbra.
+        action: stage:10b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 10a
+    text: Az "A" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Jobbra.
+        action: stage:10g
+      - text: Hátra.
+        action: stage:10i
+  - id: 10b
+    text: A "B" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:10f
+      - text: Balra.
+        action: stage:10start
+      - text: Jobbra.
+        action: stage:10e
+      - text: Hátra.
+        action: stage:10h
+  - id: 10c
+    text: A "C" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:10f
+      - text: Hátra
+        action: stage:10e
+  - id: 10d
+    text: A "D" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:10j
+      - text: Jobbra.
+        action: stage:lepcso
+      - text: Előre.
+        action: stage:10k
+  - id: 10e
+    text: Az "E" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:10c
+      - text: Balra.
+        action: stage:10b
+      - text: Hátra.
+        action: stage:10l
+  - id: 10f
+    text: Az "F" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:10medvedave
+      - text: Jobbra.
+        action: stage:10c
+      - text: Hátra.
+        action: stage:10b
+  - id: 10g
+    text: A "G" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:10a
+      - text: Jobbra.
+        action: stage:10medvedave
+      - text: Hátra.
+        action: stage:10k
+  - id: 10h
+    text: A "H" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:10b
+      - text: Balra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:10l
+  - id: 10i
+    text: Az "I" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:10a
+      - text: Jobbra.
+        action: stage:10k
+      - text: Hátra.
+        action: stage:10j
+  - id: 10j
+    text: A "J" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - [Aranymedve] - Hány fokos szöget zárnak be Zoronyai Boltán lábai?
+    buttons:
+      - text: "45"
+        action: game_over:A válaszod rossz. Kiestél 10 ponttal a zsebedben. Nagyon boldogan térsz haza, jó eredményt értél el. Bár nagyon büszke vagy teljesítményedre, a benned lévő maximalista azt érzi, hogy a max pontot is el tudtad volna érni.
+      - text: "60"
+        action: game_over:A válaszod rossz. Kiestél 10 ponttal a zsebedben. Nagyon boldogan térsz haza, jó eredményt értél el. Bár nagyon büszke vagy teljesítményedre, a benned lévő maximalista azt érzi, hogy a max pontot is el tudtad volna érni.
+      - text: "105"
+        action: stage:10jjo
+      - text: "75"
+        action: game_over:A válaszod rossz. Kiestél 10 ponttal a zsebedben. Nagyon boldogan térsz haza, jó eredményt értél el. Bár nagyon büszke vagy teljesítményedre, a benned lévő maximalista azt érzi, hogy a max pontot is el tudtad volna érni.
+  - id: 10k
+    text: A "K" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:10g
+      - text: Balra.
+        action: stage:10i
+      - text: Jobbra.
+        action: stage:10start
+      - text: Hátra.
+        action: stage:10d
+  - id: 10l
+    text: Az "L" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:10e
+      - text: Balra.
+        action: stage:10h
+  - id: 10jjo
+    text: A válaszod jó. Az "C" állomás a következő és egyben utolsó célpontod. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:11i
+      - text: Jobbra.
+        action: stage:11d
+  - id: 11medvedave
+    text: "Kisétáltál a verseny területéről, ahol fogad téged Föld Ávi, és szól: -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:11start
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: 11start
+    text: Visszatértél a kiindulóponthoz. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:11medvedave
+      - text: Balra.
+        action: stage:11k
+      - text: Jobbra.
+        action: stage:11b
+      - text: Hátra.
+        action: stage:lepcso
+  - id: 11a
+    text: Az "A" állomáshoz értél.
+    buttons:
+      - text: Jobbra.
+        action: stage:11g
+      - text: Hátra.
+        action: stage:11i
+  - id: 11b
+    text: A "B" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:11f
+      - text: Balra.
+        action: stage:11start
+      - text: Jobbra.
+        action: stage:11e
+      - text: Hátra.
+        action: stage:11h
+  - id: 11c
+    text: A "C" állomáshoz értél. Elértél az állomásodhoz. A kérdésed - [Aranymedve] - Mekkora Foldave becsült szélessége?
+    buttons:
+      - text: NAGY
+        action: game_over:A válaszod rossz. Kiestél 11 ponttal a zsebedben. Nagyon boldogan térsz haza, jó eredményt értél el. Bár nagyon büszke vagy teljesítményedre, a benned lévő maximalista azt érzi, hogy a max pontot is el tudtad volna érni.
+      - text: 2 km
+        action: game_over:A válaszod rossz. Kiestél 11 ponttal a zsebedben. Nagyon boldogan térsz haza, jó eredményt értél el. Bár nagyon büszke vagy teljesítményedre, a benned lévő maximalista azt érzi, hogy a max pontot is el tudtad volna érni.
+      - text: Nem megszámolható.
+        action: game_over:A válaszod rossz. Kiestél 11 ponttal a zsebedben. Nagyon boldogan térsz haza, jó eredményt értél el. Bár nagyon büszke vagy teljesítményedre, a benned lévő maximalista azt érzi, hogy a max pontot is el tudtad volna érni.
+      - text: Uram atyám Isten, ez a megtestesülése a vastagságnak és szélességnek, nemcsak hogy gravitációs mezeje van, még a Holdénál is erősebb.
+        action: game_over:A válaszod jó. Sikeresen megnyerted a versenyt. Úgy érzed, hogy ez a nap sehogy sem mehetett volna jobban. Amikor másnap bemész Krajnyi órájára, egy nagy gratuációval és grindset-elismeréssel kezdi az órát. Ezután megérzed, az életed beteljesedett.
+  - id: 11d
+    text: A "D" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:11j
+      - text: Jobbra.
+        action: stage:lepcso
+      - text: Előre.
+        action: stage:11k
+  - id: 11e
+    text: Az "E" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:11c
+      - text: Balra.
+        action: stage:11b
+      - text: Hátra.
+        action: stage:11l
+  - id: 11f
+    text: Az "F" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:11medvedave
+      - text: Jobbra.
+        action: stage:11c
+      - text: Hátra.
+        action: stage:11b
+  - id: 11g
+    text: A "G" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Balra.
+        action: stage:11a
+      - text: Jobbra.
+        action: stage:11medvedave
+      - text: Hátra.
+        action: stage:11k
+  - id: 11h
+    text: A "H" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:11b
+      - text: Balra.
+        action: stage:lepcso
+      - text: Jobbra.
+        action: stage:11l
+  - id: 11i
+    text: Az "I" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:11a
+      - text: Jobbra.
+        action: stage:11k
+      - text: Hátra.
+        action: stage:11j
+  - id: 11j
+    text: A "J" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:11i
+      - text: Jobbra.
+        action: stage:11d
+  - id: 11k
+    text: A "K" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:11g
+      - text: Balra.
+        action: stage:11i
+      - text: Jobbra.
+        action: stage:11start
+      - text: Hátra.
+        action: stage:11d
+  - id: 11l
+    text: Az "L" állomáshoz értél. Ez nem a te állomásod jelenleg. Merre mész?
+    buttons:
+      - text: Előre.
+        action: stage:11e
+      - text: Balra.
+        action: stage:11h
+  - id: dave2
+    text: "Megjelenik előtted az Isten, egész terjedelmében, eléd áll, és szól : -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:medvematek2
+      - text: Feljebb megyek a hegyen.
+        action: stage:nincs
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: medvematek2
+    text: Visszamentél. Mit teszel?
+    buttons:
+      - text: Elkezdem Jegesmedve karrierem.
+        action: stage:verseny
+      - text: Ilyenkorra időzítettem az ekis cigi pillanatomat. Eldurrantok egyet.
+        action: stage:ekimatek4
+      - text: Eh, hazamegyek.
+        action: game_over:Hazamentél és továbbhallgattad a zsenialitást. (**Akkor menjen haza!**)
+  - id: ekimatek4
+    text: Pár perc után intenzíven érzed a hatását. Mit teszel?
+    buttons:
+      - text: Ölelkezek a *Medvével*
+        action: game_over:Boldogan éltek, míg meg nem haltok a kis bocsaitokkal, akik mind Krajnyi-grindset tisztelők és használók lettek.
+      - text: Kell még egy.
+        action: game_over:Ezt már nem kellett volna, tartanod kellett volna a 0.5-öt, meghaltál a túl sok csöpögéstől.
+      - text: Hazamegyek >:(
+        action: game_over:Hazamentél és továbbhallgattad a zsenialitást. (**Akkor menjen haza!**)
+  - id: nincs
+    text: Nincs több hegy.
+    buttons:
+      - text: De van.
+        action: stage:nincs2
+      - text: Oh, oké.
+        action: stage:dave3
+  - id: nincs2
+    text: Hol?
+    buttons:
+      - text: Hát... előttem.
+        action: stage:nincs3
+      - text: Hát... sehol.
+        action: stage:dave3
+  - id: nincs3
+    text: Dave? >:S
+    buttons:
+      - text: Igen.
+        action: stage:nincs4
+      - text: Ja, nem, azt hittem rá, hogy hegy.
+        action: stage:dave3
+  - id: nincs4
+    text: Ne merd.
+    buttons:
+      - text: Dede.
+        action: stage:nincs5
+      - text: Jó. :(
+        action: stage:dave3
+  - id: nincs5
+    text: Kérlek, ne!
+    buttons:
+      - text: De :D *megmászom a mestert*
+        action: game_over:Felsétáltál Foldave robosztus testére, végigtapostál rajta, feljutottál a legmagasabb pontra. Győzelmi éneked után észrevetted, az életed értelme halott. Rájöttél mit tettél. Schade. Gyászból és bűntudatból kiszúrod mindkét szemed, és elkezdesz sétálni, ennek eredményeképp elesel, legurulsz a Gellérten, elérve sorsodat.
+      - text: Jóvanna. :(
+        action: stage:dave3
+  - id: dave3
+    text: Előtted van Isten, vár, hogy válaszolj a kérdésére. (*Készen van?*)
+    buttons:
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:medvematek2
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: ekimatek3
+    text: Elfogyasztottad a kívánt terméket. Elég hamar illuminált állapotba kerülsz.
+    buttons:
+      - text: Ölelkezek a *Medvével*
+        action: game_over:Boldogan éltek, míg meg nem haltok a kis bocsaitokkal, akik mind Krajnyi-grindset tisztelők és használók lettek.
+      - text: Feljebb megyek a hegyen.
+        action: stage:dave
+      - text: Kell még egy.
+        action: game_over:Ezt már nem kellett volna, tartanod kellett volna a 0.5-öt, meghaltál a túl sok csöpögéstől.
+      - text: Hazamegyek >:(
+        action: game_over:Hazamentél és továbbhallgattad a zsenialitást. (**Akkor menjen haza!**)
+  - id: nullot
+    text: Felüvöltötted magad, hogy "**TESÓMSZ**" és megjelent pár palibro az ekis cigire, amit nagy gyorsaságban elfogyasztotok.
+    buttons:
+      - text: Na adjatok mégegyet.
+        action: game_over:Ezt már nem kellett volna, tartanod kellett volna a 0.5-öt, meghaltál a túl sok csöpögéstől.
+      - text: Készen állok egy kis crip walkra a lépcsőn lefele.
+        action: game_over:Akármennyire is üvöltözték a többiek, hogy ez veszélyes, és hogy ne csináld, mégis nagyon stílusosan le crip walkoltál a lépcsőn, elestél, és szép lassan legurultál a Gellért-hegyen, ami lassú és fájdalmas halálodat okozta.
+      - text: Na mostmár mehet a Medve Matek.
+        action: stage:ekimatek
+      - text: Hazamegyek >:(
+        action: game_over:Hazamentél és továbbhallgattad a zsenialitást. (**Akkor menjen haza!**)
+  - id: ekimatek
+    text: Egy kicsit illumináltan eldöcögsz a Medve Matekra, otthagyva srácokat.
+    buttons:
+      - text: Ölelkezek a *Medvével*
+        action: game_over:Boldogan éltek, míg meg nem haltok a kis bocsaitokkal, akik mind Krajnyi-grindset tisztelők és használók lettek.
+      - text: Feljebb megyek a hegyen.
+        action: stage:dave
+      - text: Most már jöhet a második ekis cigi.
+        action: game_over:Ezt már nem kellett volna, tartanod kellett volna a 0.5-öt, meghaltál a túl sok csöpögéstől.
+      - text: Hazamegyek >:(
+        action: game_over:Hazamentél és továbbhallgattad a zsenialitást. (**Akkor menjen haza!**)
+  - id: dave
+    text: "Megjelenik előtted az Isten, egész terjedelmében, eléd áll, és szól : -***NO***, hol tartasz... **Készen van**???"
+    buttons:
+      - text: Ölelkezek *Istennel*
+        action: game_over:A bokrok közül előbújik Sárkány "Süsü" Péter **izgató** úr, az arcából erjed az irigység, és tüzes lehelletével elintézi, hogy sose lehessél többet hűtlen. Tragikus halálod után **hazaküldi** a nagy, nemes Földesi Dávidot.
+      - text: "Nagyon sajnálom, nem, visszamegyek, sensei."
+        action: stage:ekimatek2
+      - text: Feljebb megyek a hegyen.
+        action: game_over:Illuminált állapotodnak köszönhetően, nem vetted észre, hogy **nincs több hegy**. Ezért feljebb sétáltál Foldave robosztus testére, végigtapostál rajta, feljutottál a legmagasabb pontra. Győzelmi éneked után észrevetted, az életed értelme halott. Rájöttél mit tettél. Schade. Gyászból és bűntudatból kiszúrod mindkét szemed, és elkezdesz sétálni, ennek eredményeképp elesel, legurulsz a Gellérten, elérve sorsodat.
+      - text: Igen.
+        action: game_over:"**Ne hazudjon**" - nem sok idő alatt elevaporizál téged Isten egy Access adatbázissá, megszegted az egyik alaptörvényét. Schade.
+  - id: ekimatek2
+    text: Már valamennyivel józanabban, Isten tanácsára, visszamész a Medve Matekhoz, valamennyivel józanabban.
+    buttons:
+      - text: Ölelkezek a *Medvével*
+        action: game_over:Boldogan éltek, míg meg nem haltok a kis bocsaitokkal, akik mint Krajnyi-grindset tisztelők és használók lettek.
+      - text: Most már jöhet a második ekis cigi.
+        action: game_over:Ezt már nem kellett volna, tartanod kellett volna a 0.5-öt, meghaltál a túl sok csöpögéstől.
+      - text: Hazamegyek >:(
+        action: game_over:Hazamentél és továbbhallgattad a zsenialitást. (**Akkor menjen haza!**)
