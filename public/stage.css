@@ -78,6 +78,11 @@
 	.sidepanel {
 		width: 80%;
 		height: fit-content;
+		overflow-y: auto;
+	}
+
+	.sidepanel * {
+		max-height: 10em;
 	}
 
 	.event_panel {
