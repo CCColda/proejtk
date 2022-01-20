@@ -43,16 +43,20 @@ export default class StageSelectorRouteComponent extends React.Component<{}, Sta
 
 	render() {
 		return (
-			<div className="stageselector">
-				<h1>Műalkotások</h1>
-				<div className="stagelist">
-					{
-						this.state.stages.map(
-							(v, i) => <StageCardComponent key={i} stage={v.filename} {...v.base}></StageCardComponent>)
-					}
+			<div>
+				<div className="titlepanel">
+					<h1>Műalkotások</h1>
 				</div>
-				<div className="local">
-					<ReactRouterDOM.Link className="card" to="?stage_local">Helyi fájl megnyitása</ReactRouterDOM.Link>
+				<div className="contentpanel">
+					<div className="stagelist">
+						{
+							this.state.stages.map(
+								(v, i) => <StageCardComponent key={i} stage={v.filename} {...v.base}></StageCardComponent>)
+						}
+					</div>
+					<div className="local">
+						<ReactRouterDOM.Link className="localfile" to="?stage_local">Helyi fájl megnyitása</ReactRouterDOM.Link>
+					</div>
 				</div>
 			</div>
 		);
