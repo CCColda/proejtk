@@ -3,6 +3,7 @@
 @import './stage.css';
 @import './stageselector.css';
 @import './card.css';
+@import './button.css';
 
 :root {
 	--background: black;
@@ -51,11 +52,5 @@ html, body, #content {
 
 a {
 	color: var(--foreground);
-	transition: 0.5s text-shadow;
-}
-
-@media only screen {
-	a:hover {
-		text-shadow: 0px 0px 4px var(--foreground);
-	}
+	text-decoration: none;
 }

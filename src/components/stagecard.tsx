@@ -6,9 +6,9 @@ import { StageFileBase } from '../types/stage';
 export type StageCardProps = StageFileBase & { stage: string };
 
 const StageCard: React.FC<StageCardProps> = (props) => {
-	return <ReactRouterDOM.Link className="card" to={`?stage=${props.stage}`}>
-		<p className="title">{props.title ?? props.stage}</p>
-		<p className="author">by {props.author ?? "unknown"}</p>
+	return <ReactRouterDOM.Link className="card button secondary" to={`?stage=${props.stage}`}>
+		<span className="title">{props.title ?? props.stage}</span>
+		<span className="author">by {props.author ?? "unknown"}</span>
 	</ReactRouterDOM.Link>;
 };
 

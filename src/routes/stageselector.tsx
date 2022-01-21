@@ -43,7 +43,7 @@ export default class StageSelectorRouteComponent extends React.Component<{}, Sta
 
 	render() {
 		return (
-			<div>
+			<>
 				<div className="titlepanel">
 					<h1>Műalkotások</h1>
 				</div>
@@ -55,10 +55,10 @@ export default class StageSelectorRouteComponent extends React.Component<{}, Sta
 						}
 					</div>
 					<div className="local">
-						<ReactRouterDOM.Link className="localfile" to="?stage_local">Helyi fájl megnyitása</ReactRouterDOM.Link>
+						<ReactRouterDOM.Link className="button primary localfile" to="?stage_local">Helyi fájl megnyitása</ReactRouterDOM.Link>
 					</div>
 				</div>
-			</div>
+			</>
 		);
 	}
 };
