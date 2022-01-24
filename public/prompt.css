@@ -1,17 +1,24 @@
 .prompt {
 	position: fixed;
 
+	border: 7px double white;
+	border-radius: 10px;
+
+	padding: 0.5rem 0;
+
 	top: 50%;
+	left: 0;
+	right: 0;
 	transform: translateY(-50%);
-
-	width: 100%;
-
-	color: var(--prompt-foreground);
-	background-color: var(--prompt-background);
 
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+}
+
+.prompt h1 {
+	font-family: 'Amatic SC', cursive;
+	font-size: 3rem;
 }
 
 .prompt form :not(:last-child) {
@@ -19,7 +26,8 @@
 }
 
 .prompt .input {
-	border: none;
+	background: none;
+	color: white;
 
 	margin-bottom: 1em;
 

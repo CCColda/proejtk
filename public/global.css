@@ -9,12 +9,11 @@
 	--background: black;
 	--foreground: white;
 
-	--stage-background: #100000;
+	--stage-background: rgba(0,0,0,0.4);
 	--stage-foreground: white;
 
-	--button-background: #5E0000;
-	--button-background-hover: #3E0000;
-	--button-background-click: #6E0000;
+	--button-background: #00395f;
+	--button-background-hover: #004675;
 	--button-foreground: white;
 	--button-shadow: #222222;
 
@@ -44,7 +43,7 @@ html, body, #content {
 }
 
 #content {
-	background-image: url('./wave.svg');
+	background-image: url('./img/wave.svg');
 	background-size: max(40%, 500px);
 	background-repeat: repeat no-repeat;
 	animation: bg-anim infinite alternate ease-in-out 15s;

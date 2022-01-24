@@ -64,6 +64,67 @@
 	animation: progressreminder 5s ease-in forwards;
 }
 
+.footer .button {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.button.checkpoint {
+	border-color: #005a0f;
+	background-image: url(./img/golfflag.png);
+	background-size: 1.5rem;
+	background-position: 0.25rem 0;
+}
+
+.button.checkpoint:hover {
+	background-color: #005a0f;
+}
+
+.button.recyclebin {
+	border-color: #571201;
+	background-image: url(./img/recyclebin.svg);
+	background-size: 2.125rem;
+}
+
+.button.recyclebin:hover {
+	background-color: #571201;
+}
+
+.button.save {
+	border-color: #005a0f;
+	background-image: url(./img/save.svg);
+	background-size: 2.125rem;
+}
+
+.button.save:hover {
+	background-color: #005a0f;
+}
+
+.button.restart {
+	border-color: #571201;
+	background-image: url(./img/reload.svg);
+	background-size: 2.125rem;
+}
+
+.button.restart:hover {
+	background-color: #571201;
+}
+
+.button.home {
+	border-color: white;
+	background-image: url(./img/home.svg);
+	background-size: 2.125em;
+	width: 1rem;
+	height: 1rem;
+}
+
+.button.home:hover {
+	background-color: #999999;
+	cursor: default;
+}
+
 @media (min-width: 481px) and (max-width: 768px) {
 	.sidepanel {
 		width: 30%;

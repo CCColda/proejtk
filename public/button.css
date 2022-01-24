@@ -22,3 +22,11 @@
 .button.secondary:hover {
 	background-color: #18a2ac;
 }
+
+.button.tetriary {
+	border-color: #294050;
+}
+
+.button.tetriary:hover {
+	background-color: #294050;
+}
