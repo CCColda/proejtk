@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import "../styles/prompt.css";
+
 export type KeyPromptComponentProps = {
 	submit: (key: string) => Promise<any>;
 };

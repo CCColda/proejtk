@@ -3,6 +3,9 @@ import * as ReactRouterDOM from 'react-router-dom';
 
 import { StageFileBase } from '../types/stage';
 
+import "../styles/button.css";
+import "../styles/card.css";
+
 export type StageCardProps = StageFileBase & { stage: string };
 
 const StageCard: React.FC<StageCardProps> = (props) => {

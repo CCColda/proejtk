@@ -10,6 +10,9 @@ import StageCardComponent from '../components/stagecard';
 import { RegistryFile } from '../types/registry';
 import { StageFileBase } from '../types/stage';
 
+import '../styles/stageselector.css';
+import '../styles/button.css';
+
 export type StageSelectorRouteComponentState = {
 	stages: { filename: string, base: StageFileBase }[]
 };

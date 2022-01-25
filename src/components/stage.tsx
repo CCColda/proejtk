@@ -5,7 +5,8 @@ import Storage from '../data/storage';
 
 import { Action, ActionType, Stage, StageData } from '../types/stage';
 
-// TODO: use css loader
+import "../styles/stage.css";
+import "../styles/sidebutton.css";
 
 export type StageComponentProps = {
 	stage: string,
