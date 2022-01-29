@@ -216,7 +216,11 @@ export default class StageComponent extends React.Component<StageComponentProps,
 				{Storage.checkProgress(this.props.stage)
 					? <>
 						<button className="button recyclebin" title="Mentés törlése" onClick={ev => { this.wipe(); this.forceUpdate(); }}></button>
-						<button className="button checkpoint" title="Előző mentés újratöltése" onClick={ev => { this.progress = this.load().progress; this.forceUpdate(); }}></button>
+						<button className="button checkpoint" title="Előző mentés újratöltése" onClick={ev => {
+							const { progress, stage } = this.load();
+							this.progress = progress;
+							this.setState({ stage });
+						}}></button>
 					</>
 					: <></>}
 				<button className="button restart" title="Újrakezdés" onClick={ev => this.restart()}></button>
