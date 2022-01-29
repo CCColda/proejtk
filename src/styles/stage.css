@@ -64,7 +64,12 @@
 	animation: progressreminder 5s ease-in forwards;
 }
 
+.footer {
+	gap: 0.25rem;
+}
+
 .footer .button {
+	box-sizing: border-box !important;
 	background-color: transparent;
 	background-repeat: no-repeat;
 	width: 2.5rem;
@@ -116,8 +121,6 @@
 	border-color: white;
 	background-image: url(./img/home.svg);
 	background-size: 2.125em;
-	width: 1rem;
-	height: 1rem;
 }
 
 .button.home:hover {
