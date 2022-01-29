@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import "../styles/prompt.css";
+
 export type KeyPromptComponentProps = {
 	submit: (key: string) => Promise<any>;
 };
@@ -21,7 +23,7 @@ export const KeyPromptComponent: React.FC<KeyPromptComponentProps> = (props) => 
 			inputRefNode.value = "";
 		}}>
 			<input className="input" type="password" placeholder="Jelszó" ref={node => inputRefNode = node}></input>
-			<button className="input" type="submit" ref={node => submitRefNode = node}>Feloldás</button>
+			<button className="input button primary" type="submit" ref={node => submitRefNode = node}>Feloldás</button>
 		</form>
 	</div>
 };

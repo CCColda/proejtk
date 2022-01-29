@@ -1,0 +1,28 @@
+.card {
+	display: block;
+}
+
+.card .title {
+	font-style: italic;
+}
+
+.card .author {
+	display: block;
+
+	margin-top: 0.25rem;
+
+	font-size: small;
+
+	text-align: center;
+	text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+	.card {
+		width: 90%;
+	}
+
+	.card .author {
+		text-align: right;
+	}
+}

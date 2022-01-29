@@ -10,6 +10,9 @@ import StageCardComponent from '../components/stagecard';
 import { RegistryFile } from '../types/registry';
 import { StageFileBase } from '../types/stage';
 
+import '../styles/stageselector.css';
+import '../styles/button.css';
+
 export type StageSelectorRouteComponentState = {
 	stages: { filename: string, base: StageFileBase }[]
 };
@@ -43,18 +46,22 @@ export default class StageSelectorRouteComponent extends React.Component<{}, Sta
 
 	render() {
 		return (
-			<div className="stageselector">
-				<h1>Műalkotások</h1>
-				<div className="stagelist">
-					{
-						this.state.stages.map(
-							(v, i) => <StageCardComponent key={i} stage={v.filename} {...v.base}></StageCardComponent>)
-					}
+			<>
+				<div className="titlepanel">
+					<h1>Műalkotások</h1>
 				</div>
-				<div className="local">
-					<ReactRouterDOM.Link className="card" to="?stage_local">Helyi fájl megnyitása</ReactRouterDOM.Link>
+				<div className="contentpanel">
+					<div className="stagelist">
+						{
+							this.state.stages.map(
+								(v, i) => <StageCardComponent key={i} stage={v.filename} {...v.base}></StageCardComponent>)
+						}
+					</div>
+					<div className="local">
+						<ReactRouterDOM.Link className="button primary localfile" to="?stage_local">Helyi fájl megnyitása</ReactRouterDOM.Link>
+					</div>
 				</div>
-			</div>
+			</>
 		);
 	}
 };

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
+.titlepanel {
+	width: 100%;
+}
+
+.titlepanel h1 {
+	font-family: 'Amatic SC', cursive;
+	font-size: 4rem;
+	text-align: center;
+}
+
+.local {
+	display: grid;
+	place-items: center;
+}
+
+.stagelist {
+	display: flex;
+
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+	overflow-y: auto;
+
+	gap: 2px;
+}
+
+@media (min-width: 769px) {
+	.local{
+		position: absolute;
+		bottom: 3em;
+		width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.stagelist {
+		width: 100%;
+	}
+
+	.local {
+		margin-top: 1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.stagelist {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+		align-items: center;
+	}
+}

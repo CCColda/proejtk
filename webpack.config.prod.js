@@ -38,7 +38,13 @@ const config = {
 			{
 				test: /\.css$/i,
 				use: [
-					"style-loader", "css-loader"
+					"style-loader",
+					{
+						loader: "css-loader",
+						options: {
+							url: false
+						}
+					},
 				]
 			},
 		]

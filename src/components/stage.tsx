@@ -5,7 +5,8 @@ import Storage from '../data/storage';
 
 import { Action, ActionType, Stage, StageData } from '../types/stage';
 
-// TODO: use css loader
+import "../styles/stage.css";
+import "../styles/sidebutton.css";
 
 export type StageComponentProps = {
 	stage: string,
@@ -211,12 +212,19 @@ export default class StageComponent extends React.Component<StageComponentProps,
 				</div>
 			</div>
 			<div className="footer">
-				<button className="card" onClick={ev => { this.save(); this.forceUpdate(); }}>Mentés</button>
+				<button className="button save" title="Mentés" onClick={ev => { this.save(); this.forceUpdate(); }}></button>
 				{Storage.checkProgress(this.props.stage)
-					? <button className="card" onClick={ev => { this.wipe(); this.forceUpdate(); }}>Mentések törlése</button>
+					? <>
+						<button className="button recyclebin" title="Mentés törlése" onClick={ev => { this.wipe(); this.forceUpdate(); }}></button>
+						<button className="button checkpoint" title="Előző mentés újratöltése" onClick={ev => {
+							const { progress, stage } = this.load();
+							this.progress = progress;
+							this.setState({ stage });
+						}}></button>
+					</>
 					: <></>}
-				<button className="card" onClick={ev => this.restart()}>Kezdés az elejéről</button>
-				<ReactRouterDOM.Link className="card" to="?">Főoldal</ReactRouterDOM.Link>
+				<button className="button restart" title="Újrakezdés" onClick={ev => this.restart()}></button>
+				<ReactRouterDOM.Link className="button home" title="Főoldal" to="?"></ReactRouterDOM.Link>
 			</div>
 		</div>
 	}
