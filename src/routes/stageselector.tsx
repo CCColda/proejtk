@@ -57,8 +57,9 @@ export default class StageSelectorRouteComponent extends React.Component<{}, Sta
 								(v, i) => <StageCardComponent key={i} stage={v.filename} {...v.base}></StageCardComponent>)
 						}
 					</div>
-					<div className="local">
+					<div className="buttons">
 						<ReactRouterDOM.Link className="button primary localfile" to="?stage_local">Helyi fájl megnyitása</ReactRouterDOM.Link>
+						<ReactRouterDOM.Link className="button primary editor" to="?editor">Szerkesztés</ReactRouterDOM.Link>
 					</div>
 				</div>
 			</>

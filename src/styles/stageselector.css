@@ -10,9 +10,12 @@
 	text-align: center;
 }
 
-.local {
-	display: grid;
-	place-items: center;
+.buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
 }
 
 .stagelist {
@@ -27,7 +30,7 @@
 }
 
 @media (min-width: 769px) {
-	.local{
+	.buttons {
 		position: absolute;
 		bottom: 3em;
 		width: 100%;
@@ -39,7 +42,7 @@
 		width: 100%;
 	}
 
-	.local {
+	.buttons {
 		margin-top: 1rem;
 	}
 }

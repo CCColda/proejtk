@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
+.titlepanel {
+	width: 100%;
+}
+
+.titlepanel h1 {
+	font-family: 'Amatic SC', cursive;
+	font-size: 4rem;
+	text-align: center;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.filechooser {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+
+	border: 3px solid white;
+	border-radius: 3px;
+	padding: 0.5rem;
+
+	gap: 1rem;
+}
+
+.selection {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.selection>input {
+	display: none;
+}
+
+.selection>label {
+	border: 1px dashed white;
+	border-radius: 3px;
+	padding: 0.5rem;
+}
+
+.selection>input:checked~label {
+	border-color: red;
+	border-style: solid;
+}
+
+.selection>label>p {
+	margin: 0.5rem;
+}
+
+.dialog {
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+
+	gap: 1rem;
+}
+
+@media (min-width: 769px) {
+	.buttons {
+		position: absolute;
+		bottom: 3em;
+		width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.buttons {
+		margin-top: 1rem;
+	}
+}
+
+@media (max-width: 480px) {}
