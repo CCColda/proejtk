@@ -1,0 +1,29 @@
+.stagecard {
+	display: block;
+
+	.title {
+		font-style: italic;
+	}
+
+	.author {
+		display: block;
+
+		margin-top: 0.25rem;
+
+		font-size: small;
+
+		text-align: center;
+		text-transform: uppercase;
+	}
+}
+
+@media (max-width: 480px) {
+	.stagecard {
+		width: 90%;
+
+		.author {
+			text-align: right;
+		}
+	}
+
+}

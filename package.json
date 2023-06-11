@@ -1,0 +1,32 @@
+{
+  "name": "proejtk",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "homepage": "http://cccolda.github.io/proejtk",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/node": "20.3.0",
+    "@types/react": "18.2.11",
+    "@types/react-dom": "18.2.4",
+    "buffer": "^6.0.3",
+    "eslint": "8.42.0",
+    "eslint-config-next": "13.4.5",
+    "next": "13.4.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "^8.0.7",
+    "typescript": "5.1.3",
+    "xtea": "^1.0.0",
+    "yaml": "^2.3.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0",
+    "sass": "^1.63.3"
+  }
+}

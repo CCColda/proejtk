@@ -1,0 +1,11 @@
+@import "../styles/font.css";
+
+.titlepanel {
+	width: 100%;
+}
+
+.titlepanel h1 {
+	font-family: 'Amatic SC', cursive;
+	font-size: 4rem;
+	text-align: center;
+}

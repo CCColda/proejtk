@@ -1,0 +1,45 @@
+@import "../styles/font.css";
+
+.prompt {
+	position: fixed;
+
+	border: 7px double white;
+	border-radius: 10px;
+
+	padding: 0.5rem 0;
+
+	top: 50%;
+	left: 0;
+	right: 0;
+	transform: translateY(-50%);
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	h1 {
+		font-family: 'Amatic SC', cursive;
+		font-size: 3rem;
+	}
+
+	form :not(:last-child) {
+		margin-right: 1em;
+	}
+
+	.input {
+		background: none;
+		color: white;
+
+		margin-bottom: 1em;
+
+		height: 3rem;
+		border-radius: 5px;
+		padding: 0 1em;
+
+		transition: 0.3s border;
+
+		&.invalid {
+			border: 2px solid red !important;
+		}
+	}
+}

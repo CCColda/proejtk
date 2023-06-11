@@ -1,0 +1,20 @@
+:root {
+	--background: black;
+	--foreground: white;
+
+	--stage-background: rgba(0, 0, 0, 0.4);
+	--stage-foreground: white;
+
+	--button-background: #00395f;
+	--button-background-hover: #004675;
+	--button-foreground: white;
+	--button-shadow: #222222;
+
+	--prompt-foreground: white;
+	--prompt-background: #200000;
+}
+
+a {
+	color: var(--foreground);
+	text-decoration: none;
+}
