@@ -17,6 +17,7 @@
     "buffer": "^6.0.3",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
+    "file-saver": "^2.0.5",
     "next": "13.4.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -26,6 +27,7 @@
     "yaml": "^2.3.1"
   },
   "devDependencies": {
+    "@types/file-saver": "^2.0.5",
     "gh-pages": "^5.0.0",
     "sass": "^1.63.3"
   }

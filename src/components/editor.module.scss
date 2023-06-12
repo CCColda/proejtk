@@ -1,14 +1,254 @@
+@import "./sidebutton.scss";
+
+.page {
+	position: relative;
+	height: 100%;
+}
+
 .editor {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
 	display: flex;
 	flex-direction: row;
-	align-items: flex-start;
+	align-items: stretch;
 	justify-content: space-between;
 	gap: 1rem;
 }
 
-.stage_preview {
-	width: 100%;
+.textarea {
+	$padding: 0.5rem;
+	$border: 1px;
+
+	display: inline-block;
+	background: none;
+	color: var(--foreground);
+
+	border: $border dashed white;
+	border-radius: 5px;
+
+	padding: $padding;
+	margin: 0;
+
+	$width: calc(100% - 2*($padding + $border));
+	$height: calc(100% - 2*($padding + $border));
+
+	width: $width;
+	height: $height;
+
+	resize: none;
 }
+
+
+.stagelist {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: baseline;
+
+	width: 100%;
+	height: 100%;
+
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.stageradio {
+	>input {
+		display: none;
+	}
+
+	>label {
+		display: block;
+
+		font-family: monospace;
+		margin-left: 1rem;
+		color: var(--inactive-foreground);
+	}
+
+	>input:checked~label {
+		&::before {
+			font-family: monospace;
+			content: '>';
+			margin-right: 0.5rem;
+		}
+
+		margin-left: 0;
+		font-weight: bold;
+
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+
+		color: var(--foreground);
+	}
+}
+
+.validatedinputcontainer {
+	>input {
+		display: block;
+		font-family: monospace;
+		background: none;
+		color: var(--foreground);
+		padding: 0.5rem;
+
+		border: none;
+		border-bottom: 2px solid var(--foreground);
+	}
+
+	&.invalid {
+		>input {
+			color: #770000;
+			border-color: #770000;
+		}
+	}
+}
+
+.stageactions {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-between;
+
+	gap: 1rem;
+	width: 100%;
+
+	.rename {
+		@extend .validatedinputcontainer;
+
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+
+		>p {
+			margin: 0;
+			padding: 0;
+			align-self: center;
+			font-family: monospace;
+			user-select: none;
+		}
+	}
+}
+
+.main {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 2rem;
+	margin-bottom: 1rem;
+
+	.stage_preview {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-start;
+		gap: 1rem;
+
+		width: 100%;
+		height: 100%;
+
+		.panels {
+			height: 100%;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: nowrap;
+
+			gap: 1rem;
+		}
+
+		.sidepanel {
+			width: 20%;
+			height: 80%;
+
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: stretch;
+		}
+
+		.eventpanel {
+			width: 100%;
+			height: 100%;
+		}
+
+		&:not(.edit) {
+			.stageeditbutton {
+				flex: 1;
+				width: 100%;
+				height: 100%;
+			}
+
+			.eventpanel {
+				display: flex;
+				flex-direction: column;
+				flex-wrap: nowrap;
+				align-items: center;
+			}
+		}
+
+		&.edit {
+			.sidepanel {
+				gap: 1rem;
+			}
+
+			.stageeditbutton {
+				&.invalid {
+					background: #66000077;
+					border-radius: 5px;
+				}
+
+				flex: 1;
+
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: stretch;
+				flex-wrap: nowrap;
+
+				>textarea {
+					flex: 1;
+				}
+
+				.actionedit {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					justify-content: stretch;
+					flex-wrap: nowrap;
+
+					width: 100%;
+
+					>select {
+						width: 100%;
+						background: none;
+						color: var(--foreground);
+						border: none;
+						margin-top: 0.5rem;
+						margin-bottom: 0.5rem;
+
+						>option {
+							color: initial;
+						}
+					}
+
+					>textarea {
+						flex: 1;
+						max-width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
 
 .stages {
 	display: flex;
@@ -16,36 +256,56 @@
 	align-items: flex-start;
 	justify-content: space-between;
 	max-width: 80%;
-	min-width: 5rem;
-	width: 5rem;
+	min-width: 8rem;
+	width: 8rem;
 
 	border: 3px solid white;
 	padding: 1rem;
 
 	resize: horizontal;
-	overflow-y: scroll;
 	overflow-x: hidden;
+
+	.newstage {
+		@extend .validatedinputcontainer;
+		display: flex;
+
+		width: 100%;
+
+		>input {
+			flex: 1;
+			min-width: 5rem;
+		}
+	}
 }
 
-
-.panels {
-	height: 100%;
-
+.bottompanel {
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	flex-wrap: nowrap;
+	justify-content: stretch;
 }
 
-.sidepanel {
-	width: 20%;
-	height: 80%;
+.preview {
+	>input {
+		display: none;
+	}
 
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+	>label {
+		font-family: sans-serif;
+		font-size: small;
+
+		padding: 0.5em;
+		border: 3px solid var(--foreground);
+		color: var(--foreground);
+		background: var(--background);
+		border-radius: 5px;
+	}
+
+	>input:checked~label {
+		background-color: var(--foreground);
+		color: var(--background);
+	}
 }
+
 
 @media (min-width: 769px) {
 	.buttons {

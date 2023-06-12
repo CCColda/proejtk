@@ -1,6 +1,7 @@
 :root {
 	--background: black;
 	--foreground: white;
+	--inactive-foreground: gray;
 
 	--stage-background: rgba(0, 0, 0, 0.4);
 	--stage-foreground: white;

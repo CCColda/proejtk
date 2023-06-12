@@ -5,6 +5,13 @@
 
 	transition: 400ms ease-out background;
 
+	color: var(--foreground);
+	background: var(--background);
+
+	&:disabled {
+		background-color: #55555577;
+		color: #888888;
+	}
 
 	&.primary {
 		border-color: #1870ac;

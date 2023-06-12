@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import { Action, ActionType, Stage, StageData } from '../types/stage';
 import { useEffect, useMemo, useState } from 'react';
 
-import { useForceUpdate, useSelectiveForceUpdate } from '@/hooks/forceUpdate';
+import { useForceUpdate, useSelectiveForceUpdate } from '@/hooks/useForceUpdate';
 
 import styles from "./stagecomponent.module.scss";
 import { useStorage } from '@/hooks/useStorage';

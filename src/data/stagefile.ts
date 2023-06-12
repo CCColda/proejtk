@@ -113,7 +113,8 @@ export function loadLocalStageFileRaw(blob: Blob): Promise<StageFile | null> {
 
 export function unbundleAction(action: Button["action"]): Action {
 	if (typeof action === "string") {
-		const [type, data] = action.split(":", 1);
+		const colon = action.indexOf(":");
+		const [type, data] = [action.substring(0, colon), action.substring(colon + 1)];
 		if (!["game_over", "stage", "invalid"].includes(type))
 			return { type: "invalid" };
 
@@ -123,6 +124,7 @@ export function unbundleAction(action: Button["action"]): Action {
 			case "invalid": return { type: "invalid" };
 			case "game_over": return { type: "game_over", message: data };
 			case "stage": return { type: "stage", stage: data };
+			default: return { type: "invalid" };
 		}
 	}
 	else {
