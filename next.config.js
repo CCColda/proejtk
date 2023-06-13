@@ -41,18 +41,18 @@ module.exports = async () => {
 	console.log(`Developer mode: ${is_dev ? "on" : "off"}`);
 	console.log(` - basePath is "${prefix}".`);
 
-	const basePath = is_dev ? undefined : "/" + prefix;
+	const assetPrefix = is_dev ? "" : "/" + prefix + "/";
 
 	return {
 		publicRuntimeConfig: {
 			mode: is_dev ? "dev" : "prod",
-			basePath
+			assetPrefix
 		},
 		optimizeFonts: false,
 		output: is_dev ? "export" : undefined,
 		reactStrictMode: true,
 		swcMinify: true,
-		basePath,
+		assetPrefix,
 		// assetPrefix: is_dev ? "" : basePath,
 	}
 };

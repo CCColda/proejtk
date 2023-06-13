@@ -6,7 +6,7 @@ import styles from './_app.module.scss';
 
 import Head from "next/head";
 import getConfig from "next/config";
-import { NextConfig } from "@/types/next.config";
+import { NextUserConfig } from "@/types/next.config";
 
 import image_urls from "../styles/image_urls.json";
 import { CSSProperties } from "react";
@@ -20,7 +20,7 @@ const serializeImageURLs = (prefix: string): CSSProperties => {
 }
 
 export default function App({ Component, pageProps }: AppProps) {
-	const { publicRuntimeConfig: config } = getConfig() as NextConfig;
+	const { publicRuntimeConfig: config } = getConfig() as NextUserConfig;
 
 	return (<>
 		<Head>
@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
 		</Head>
 		<main
 			className={[styles.content, config.mode == "dev" ? styles.dev : ""].join(" ")}
-			style={serializeImageURLs(config.basePath)}>
+			style={serializeImageURLs(config.assetPrefix)}>
 			<Component {...pageProps}></Component>
 		</main>
 	</>

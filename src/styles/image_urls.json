@@ -1,8 +1,8 @@
 {
-	"golfflag": "@/img/golfflag.png",
-	"wave": "@/img/wave.svg",
-	"recyclebin": "@/img/recyclebin.svg",
-	"save": "@/img/save.svg",
-	"reload": "@/img/reload.svg",
-	"home": "@/img/home.svg"
+	"golfflag": "@img/golfflag.png",
+	"wave": "@img/wave.svg",
+	"recyclebin": "@img/recyclebin.svg",
+	"save": "@img/save.svg",
+	"reload": "@img/reload.svg",
+	"home": "@img/home.svg"
 }

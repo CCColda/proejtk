@@ -1,6 +1,6 @@
-export type NextConfig = {
+export type NextUserConfig = {
 	publicRuntimeConfig: {
 		mode: "prod" | "dev",
-		basePath: string
+		assetPrefix: string
 	}
 };

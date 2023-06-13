@@ -1,5 +1,7 @@
 import Link from "next/link";
 import styles from "./button.module.scss";
+import { NextUserConfig } from "@/types/next.config";
+import getConfig from "next/config";
 
 export type ButtonPriority = "primary" | "secondary" | "tetriary";
 
@@ -35,8 +37,14 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProps>>
 			disabled={disabled}>{children}</button>;
 
 export const LinkButton: React.FC<React.PropsWithChildren<LinkButtonProps>>
-	= ({ children, href, title, priority, classes }) =>
-		<Link
+	= ({ children, href, title, priority, classes }) => {
+		const config = getConfig() as NextUserConfig;
+		const correctedhref = config.publicRuntimeConfig.assetPrefix
+			? config.publicRuntimeConfig.assetPrefix.slice(0, -1) + href
+			: href
+
+		return <Link
 			className={makeStyles(priority ?? "primary", classes)}
 			title={title}
-			href={href}>{children}</Link>;
+			href={correctedhref}>{children}</Link>;
+	}
