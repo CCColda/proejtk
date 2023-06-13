@@ -1,7 +1,7 @@
 import { PATHS } from '../data/constants';
 import { loadStageFileRaw } from '../data/stagefile';
 
-import { StageLoaderComponent, StageLoaderResult } from './stageloader';
+import { StageLoaderComponent, StageLoaderResult } from '../components/stageloader';
 
 import styles from "./stage.module.scss";
 import { useRouter } from 'next/router';

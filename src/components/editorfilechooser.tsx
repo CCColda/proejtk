@@ -43,6 +43,7 @@ const EditorFileChooserComponent: React.FC<EditorFileChooserComponentProps> = (p
 
 		setFileUploadState(null);
 		setFileState(result);
+		setRadioState("edit");
 	};
 
 	const onFileNameChange: React.ChangeEventHandler<HTMLInputElement> = (ev) => {
@@ -55,7 +56,7 @@ const EditorFileChooserComponent: React.FC<EditorFileChooserComponentProps> = (p
 				<h2>Fájl kiválasztása</h2>
 				<div className={styles.filechooser}>
 					<div className={styles.selection}>
-						<input type="radio" name="file_to_edit" id="edit_local_file" value="edit" onChange={onRadioChange} />
+						<input key={radioState} type="radio" name="file_to_edit" id="edit_local_file" value="edit" onChange={onRadioChange} defaultChecked={radioState == "edit"} />
 						<label htmlFor="edit_local_file">
 							<p> Helyi fájl szerkesztése </p>
 							<input type="file" name="" id="" accept={STAGEFILE_EXTENSIONS.join(",")} onChange={onFileUpload} />
@@ -65,7 +66,7 @@ const EditorFileChooserComponent: React.FC<EditorFileChooserComponentProps> = (p
 						</label>
 					</div>
 					<div className={styles.selection}>
-						<input type="radio" name="file_to_edit" id="new_file" value="new" onChange={onRadioChange} defaultChecked />
+						<input key={radioState} type="radio" name="file_to_edit" id="new_file" value="new" onChange={onRadioChange} defaultChecked={radioState == "new"} />
 						<label htmlFor="new_file">
 							<p>Új fájl szerkesztése</p>
 							<div className="filename">

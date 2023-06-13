@@ -1,8 +1,6 @@
-
 import ReactMarkdown from "react-markdown";
 
-import { KeyPromptComponent } from "../components/prompt";
-import Storage from "../data/storage";
+import { KeyPromptComponent } from "./prompt";
 import { decryptStageFile } from "../data/stagefile";
 import { StageData, StageFile } from "../types/stage";
 import { useEffect, useState } from "react";

@@ -1,7 +1,7 @@
 import { LOCAL_STAGEFILE, STAGEFILE_EXTENSIONS } from '../data/constants';
 import { loadLocalStageFileRaw } from '../data/stagefile';
 import { useState } from 'react';
-import { StageLoaderComponent, StageLoaderResult } from './stageloader';
+import { StageLoaderComponent, StageLoaderResult } from '../components/stageloader';
 
 import styles from "./stage_local.module.scss";
 

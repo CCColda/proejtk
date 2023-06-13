@@ -1,4 +1,5 @@
 import styles from "./prompt.module.scss";
+
 import { Button } from './button';
 import { useRef, useState } from 'react';
 

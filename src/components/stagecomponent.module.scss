@@ -126,7 +126,7 @@
 
 	&.checkpoint {
 		border-color: #005a0f;
-		background-image: url("/img/golfflag.png");
+		background-image: var(--img-golfflag);
 		background-size: 1.5rem;
 		background-position: 0.25rem 0;
 
@@ -137,7 +137,7 @@
 
 	&.recyclebin {
 		border-color: #571201;
-		background-image: url("/img/recyclebin.svg");
+		background-image: var(--img-recyclebin);
 		background-size: 2.125rem;
 	}
 
@@ -147,7 +147,7 @@
 
 	&.save {
 		border-color: #005a0f;
-		background-image: url("/img/save.svg");
+		background-image: var(--img-save);
 		background-size: 2.125rem;
 
 		&:hover {
@@ -157,7 +157,7 @@
 
 	&.restart {
 		border-color: #571201;
-		background-image: url("/img/reload.svg");
+		background-image: var(--img-reload);
 		background-size: 2.125rem;
 
 		&:hover {
@@ -167,7 +167,7 @@
 
 	&.home {
 		border-color: white;
-		background-image: url("/img/home.svg");
+		background-image: var(--img-home);
 		background-size: 2.125em;
 
 		&:hover {

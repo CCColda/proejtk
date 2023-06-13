@@ -2,10 +2,9 @@ import { Action, Button, ID, Stage, StageFile } from "../types/stage"
 import ReactMarkdown from 'react-markdown';
 
 import styles from "./editor.module.scss";
-import { ChangeEventHandler, ReactEventHandler, useEffect, useMemo, useState } from "react";
+import { ChangeEventHandler, useEffect, useMemo, useState } from "react";
 import { unbundleAction } from "@/data/stagefile";
 import { useArray } from "@/hooks/useArray";
-import { useDictionary } from "@/hooks/useDictionary";
 import { Button as ButtonComponent } from "./button";
 import saveAs from "file-saver";
 import { stringify } from "yaml";

@@ -44,7 +44,7 @@ export async function loadStageFileRaw(path: string): Promise<StageFile | null> 
 
 	try {
 		return (
-			resp.headers.get("Content-Type").match("application/json")
+			resp.headers.get("Content-Type")?.match("application/json")
 				? await resp.json()
 				: yaml.parse(await resp.text())
 		) as StageFile;
@@ -89,7 +89,7 @@ export function loadLocalStageFileRaw(blob: Blob): Promise<StageFile | null> {
 		reader.onload = () => {
 			const textData = typeof reader.result == "string"
 				? reader.result
-				: new TextDecoder().decode(reader.result);
+				: new TextDecoder().decode(reader.result ?? undefined);
 
 			try {
 				return res(JSON.parse(textData));

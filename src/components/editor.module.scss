@@ -1,4 +1,5 @@
 @import "./sidebutton.scss";
+@import "./button.module.scss";
 
 .page {
 	position: relative;
@@ -290,19 +291,26 @@
 	}
 
 	>label {
-		font-family: sans-serif;
-		font-size: small;
+		@extend .button;
 
-		padding: 0.5em;
 		border: 3px solid var(--foreground);
 		color: var(--foreground);
 		background: var(--background);
-		border-radius: 5px;
+
+		transition: 0.2s background linear;
+
+		&:hover {
+			background-color: #888888;
+		}
 	}
 
 	>input:checked~label {
 		background-color: var(--foreground);
 		color: var(--background);
+
+		&:hover {
+			background-color: #888888;
+		}
 	}
 }
 

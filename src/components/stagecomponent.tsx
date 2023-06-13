@@ -8,6 +8,7 @@ import { useForceUpdate, useSelectiveForceUpdate } from '@/hooks/useForceUpdate'
 import styles from "./stagecomponent.module.scss";
 import { useStorage } from '@/hooks/useStorage';
 import { Button, LinkButton } from './button';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export type StageComponentProps = {
 	stage: string,
@@ -49,10 +50,9 @@ const gameOverStage = (gameOver: { id?: string, message: string }): Stage => {
 }
 
 export const StageComponent: React.FC<StageComponentProps> = props => {
-	const media = window.matchMedia("(max-width: 480px)");
 	const [stage, setStage] = useState<Stage | null>(null);
 	const [progress_loaded, setProgressLoaded] = useState<boolean>(false);
-	const [phone, setPhone] = useState<boolean>(false);
+	const phone = useMediaQuery("(max-width: 480px)");
 	const [update, forceUpdate] = useSelectiveForceUpdate();
 	const storage = useStorage();
 
@@ -171,8 +171,6 @@ export const StageComponent: React.FC<StageComponentProps> = props => {
 	useEffect(() => {
 		const loaded = load();
 		setProgress(loaded?.progress ?? [stage?.id ?? 0]);
-
-		media.onchange = mqle => setPhone(mqle.matches);
 
 		setStage(loaded?.stage ??
 			(
